@@ -4,6 +4,7 @@ use std::path::Path;
 
 use serde::Deserialize;
 
+use super::geom::GptPartition;
 use crate::error::{Error, Result};
 
 #[derive(Clone, Debug, PartialEq, Eq)]
@@ -29,6 +30,11 @@ pub struct SesBay {
     pub model: Option<String>,
     pub serial: Option<String>,
     pub size_bytes: Option<u64>,
+    pub wwn: Option<String>,
+    pub gpt_scheme: Option<String>,
+    pub gpt_partitions: Vec<GptPartition>,
+    /// True when this kernel disk was found in the geom inventory.
+    pub geom_known: bool,
 }
 
 impl SesBay {
@@ -248,6 +254,10 @@ pub fn parse_sesutil_named(
                 model: show_el.and_then(|s| nonempty(s.model.as_ref())),
                 serial: show_el.and_then(|s| nonempty(s.serial.as_ref())),
                 size_bytes: show_el.and_then(|s| s.size),
+                wwn: None,
+                gpt_scheme: None,
+                gpt_partitions: Vec::new(),
+                geom_known: false,
             });
         }
         out.push(SesEnclosure {

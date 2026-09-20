@@ -474,7 +474,14 @@ It does **not** have locate/fault LEDs on. Add a small overlay or a second
 capture for LED rendering tests; do not fake LEDs by editing the lab dump
 in place without labeling it.
 
-ZFS/GPT/mount data is still a separate fixture layer, joined on serial.
+GPT/WWN come from `examples/geom/disks.json` (joined on **serial**, then
+`daN`). Mounts and ZFS are still a later fixture layer.
+
+Most lab data disks have **no GPT** (whole-disk ZFS). GPT labels in this
+capture: boot SSDs (`gptboot*`, `swap*`, `zfs*`), hog spares
+(`gpt/hog-…-spare`), and `gpt/bigpool-…`. `gpart list --libxo json` was
+plain text on the lab host; the fixture is structured JSON derived from
+that dump. Serials inside GPT labels are scrambled like SES idents.
 
 ### 9.5 Lab SES capture (parser contract)
 
@@ -598,6 +605,7 @@ src/
 examples/
   diskmgr.toml
   sesutil/          # recorded map.json, show.json, status.json
+  geom/disks.json   # GPT + WWN (geom disk ident/lunid), serials scrambled
 ```
 
 `layout.rs` must be unit-tested with no hardware: origin/fill/base permutations.

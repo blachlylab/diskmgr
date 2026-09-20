@@ -151,6 +151,18 @@ mod tests {
         assert!(text.contains("└───┘"));
         assert!(!text.contains("┌──────┐"));
     }
+
+    #[test]
+    fn boot_ssd_status_shows_gpt_labels() {
+        let mut app = lab_app();
+        app.handle_key(crate::app::Key::Char('1'));
+        app.select_idx = 4; // AHCI SGPIO (boot)
+        app.handle_key(crate::app::Key::Enter);
+        let text = view(&app, 120, 36);
+        assert!(text.contains("gpt/gptboot0") || text.contains("gptboot0"));
+        assert!(text.contains("gpt/zfs0") || text.contains("zfs0"));
+        assert!(text.contains("freebsd-zfs"));
+    }
 }
 
 pub(crate) fn inner_with_status(area: Rect) -> (Rect, Rect) {

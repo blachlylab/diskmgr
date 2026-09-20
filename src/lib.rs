@@ -12,4 +12,4 @@ pub use config::{Config, DiskOrient, EnclosureConfig, Face};
 pub use error::{Error, Result};
 pub use inventory::{Inventory, MappedEnclosure, MappedSlot};
 pub use layout::{Cell, Fill, Geometry, Origin};
-pub use probe::{FixtureProbe, SesBay, SesEnclosure};
+pub use probe::{FixtureProbe, GeomDisk, GptPartition, SesBay, SesEnclosure};

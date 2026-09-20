@@ -362,11 +362,13 @@ impl App {
                 .as_ref()
                 .and_then(|b| b.size_bytes)
                 .cmp(&sb.bay.as_ref().and_then(|b| b.size_bytes)),
+            GridColumn::Wwn => opt_str(sa.wwn()).cmp(&opt_str(sb.wwn())),
+            GridColumn::Gpt => {
+                opt_str(sa.gpt_summary().as_deref()).cmp(&opt_str(sb.gpt_summary().as_deref()))
+            }
             GridColumn::Fault => sa.fault().cmp(&sb.fault()),
             GridColumn::Locate => sa.locate().cmp(&sb.locate()),
-            GridColumn::Wwn
-            | GridColumn::Gpt
-            | GridColumn::Mounted
+            GridColumn::Mounted
             | GridColumn::ZfsPool
             | GridColumn::ZfsVdev
             | GridColumn::ZfsRole => Ordering::Equal,

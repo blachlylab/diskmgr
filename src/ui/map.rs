@@ -29,7 +29,13 @@ pub fn draw(frame: &mut Frame, app: &App, area: Rect) {
     let (map_area, status_area) = inner_with_status(area);
     if let Some(enc) = app.current_enclosure() {
         draw_grid(frame, map_area, enc, app.map_silk);
-        draw_status(frame, status_area, enc, app.focused_slot());
+        draw_status(
+            frame,
+            status_area,
+            enc,
+            app.focused_slot(),
+            app.inventory.geom_probed,
+        );
     } else {
         frame.render_widget(
             Paragraph::new("no enclosure").block(Block::bordered()),
@@ -219,7 +225,13 @@ fn put_led(buf: &mut ratatui::buffer::Buffer, x: u16, y: u16, on: bool, ch: char
     }
 }
 
-fn draw_status(frame: &mut Frame, area: Rect, enc: &MappedEnclosure, slot: Option<&MappedSlot>) {
+fn draw_status(
+    frame: &mut Frame,
+    area: Rect,
+    enc: &MappedEnclosure,
+    slot: Option<&MappedSlot>,
+    geom_probed: bool,
+) {
     let Some(slot) = slot else {
         frame.render_widget(Block::bordered().title(" Slot "), area);
         return;
@@ -285,7 +297,7 @@ fn draw_status(frame: &mut Frame, area: Rect, enc: &MappedEnclosure, slot: Optio
                 None => "—".into(),
             };
             lines.push(kv("size", &size));
-            lines.push(kv("WWN", "—"));
+            lines.push(kv("WWN", dash(bay.wwn.as_deref())));
             if bay.serial.is_none() {
                 lines.push(Line::from(Span::styled(
                     "  no stable identity (serial/WWN missing)",
@@ -296,7 +308,7 @@ fn draw_status(frame: &mut Frame, area: Rect, enc: &MappedEnclosure, slot: Optio
     }
     lines.push(Line::from(""));
     lines.push(section("Usage"));
-    lines.push(kv("GPT", "unavailable (not probed)"));
+    lines.extend(gpt_lines(geom_probed, slot));
     lines.push(kv("mounted", "unavailable (not probed)"));
     lines.push(kv("ZFS", "unavailable (not probed)"));
 
@@ -321,6 +333,40 @@ fn key_span(key: &str) -> Span<'static> {
 
 fn kv(key: &str, value: &str) -> Line<'static> {
     Line::from(vec![key_span(key), Span::raw(value.to_string())])
+}
+
+fn gpt_lines(geom_probed: bool, slot: &MappedSlot) -> Vec<Line<'static>> {
+    if !geom_probed {
+        return vec![kv("GPT", "unavailable (not probed)")];
+    }
+    let Some(bay) = slot.bay.as_ref() else {
+        return vec![kv("GPT", "no")];
+    };
+    if !bay.gpt_partitions.is_empty() {
+        let mut lines = vec![kv("GPT", "yes")];
+        for part in &bay.gpt_partitions {
+            let size = part.length.map(fmt_size).unwrap_or_else(|| "—".into());
+            lines.push(Line::from(Span::styled(
+                format!(
+                    "    {}  {}  {}  {size}",
+                    part.display_name(),
+                    part.provider,
+                    part.type_name
+                ),
+                Style::new().fg(Color::Gray),
+            )));
+        }
+        return lines;
+    }
+    if bay
+        .gpt_scheme
+        .as_deref()
+        .is_some_and(|s| s.eq_ignore_ascii_case("GPT"))
+    {
+        vec![kv("GPT", "yes (no partition labels)")]
+    } else {
+        vec![kv("GPT", "no")]
+    }
 }
 
 fn kv_led(key: &str, on: bool, on_style: Style) -> Line<'static> {

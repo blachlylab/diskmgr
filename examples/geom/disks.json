@@ -1,0 +1,645 @@
+{
+  "disks": [
+    {
+      "name": "da0",
+      "ident": "HYVSV17V",
+      "lunid": "37079b50429241a4",
+      "mediasize": 8001563222016,
+      "descr": "HGST HUH728080AL5200",
+      "scheme": null,
+      "partitions": []
+    },
+    {
+      "name": "da1",
+      "ident": "UCAXS05E",
+      "lunid": "94cdf6f821e299f1",
+      "mediasize": 8001563222016,
+      "descr": "HGST HUH728080AL5200",
+      "scheme": null,
+      "partitions": []
+    },
+    {
+      "name": "da2",
+      "ident": "VRNYUGPT",
+      "lunid": "c47791e9e6d7c3ab",
+      "mediasize": 8001563222016,
+      "descr": "HGST HUH728080AL5200",
+      "scheme": null,
+      "partitions": []
+    },
+    {
+      "name": "da3",
+      "ident": "BFJL6FLH",
+      "lunid": "d5305e292be9e59e",
+      "mediasize": 8001563222016,
+      "descr": "HGST HUH728080AL5200",
+      "scheme": null,
+      "partitions": []
+    },
+    {
+      "name": "da4",
+      "ident": "SGJBZ59X",
+      "lunid": "1715b0aae1e1c632",
+      "mediasize": 8001563222016,
+      "descr": "HGST HUH728080AL5200",
+      "scheme": null,
+      "partitions": []
+    },
+    {
+      "name": "da5",
+      "ident": "CUZPUY1L",
+      "lunid": "245e6287c432a3a7",
+      "mediasize": 8001563222016,
+      "descr": "HGST HUH728080AL5200",
+      "scheme": null,
+      "partitions": []
+    },
+    {
+      "name": "da6",
+      "ident": "SSCSK5AY",
+      "lunid": "c4033ef6b6594dce",
+      "mediasize": 8001563222016,
+      "descr": "HGST HUH728080AL5200",
+      "scheme": null,
+      "partitions": []
+    },
+    {
+      "name": "da7",
+      "ident": "MVHJ0A6B",
+      "lunid": "eaa0163cafa855a0",
+      "mediasize": 8001563222016,
+      "descr": "HGST HUH728080AL5200",
+      "scheme": null,
+      "partitions": []
+    },
+    {
+      "name": "da8",
+      "ident": "NKCJQRGJ",
+      "lunid": "374bbfe4fd237d90",
+      "mediasize": 8001563222016,
+      "descr": "HGST HUH728080AL5200",
+      "scheme": null,
+      "partitions": []
+    },
+    {
+      "name": "da9",
+      "ident": "HHUVB81M",
+      "lunid": "79ce43bc50ecce39",
+      "mediasize": 8001563222016,
+      "descr": "HGST HUH728080AL5200",
+      "scheme": null,
+      "partitions": []
+    },
+    {
+      "name": "da10",
+      "ident": "NWZX26ZW",
+      "lunid": "220b17644297519e",
+      "mediasize": 8001563222016,
+      "descr": "HGST HUH728080AL5200",
+      "scheme": null,
+      "partitions": []
+    },
+    {
+      "name": "da11",
+      "ident": "WZYTXGGW",
+      "lunid": "31a0013679ae34c2",
+      "mediasize": 8001563222016,
+      "descr": "HGST HUH728080AL5200",
+      "scheme": null,
+      "partitions": []
+    },
+    {
+      "name": "da12",
+      "ident": "KGULDH7J",
+      "lunid": "e4dc9116b78d15d1",
+      "mediasize": 8001563222016,
+      "descr": "HGST HUH728080AL5200",
+      "scheme": null,
+      "partitions": []
+    },
+    {
+      "name": "da13",
+      "ident": "TMCQ1B1A",
+      "lunid": "54346b878e939ac9",
+      "mediasize": 8001563222016,
+      "descr": "HGST HUH728080AL5200",
+      "scheme": null,
+      "partitions": []
+    },
+    {
+      "name": "da14",
+      "ident": "UKHRXK6X",
+      "lunid": "376654514f21281a",
+      "mediasize": 8001563222016,
+      "descr": "HGST HUH728080AL5200",
+      "scheme": null,
+      "partitions": []
+    },
+    {
+      "name": "da15",
+      "ident": "MXEFJQWF0489V257G6JQ",
+      "lunid": "3dbddf237bd30be2",
+      "mediasize": 8001563222016,
+      "descr": "SEAGATE ST8000NM020B",
+      "scheme": null,
+      "partitions": []
+    },
+    {
+      "name": "da16",
+      "ident": "TLZLATBP",
+      "lunid": "73edb257feb43ab1",
+      "mediasize": 8001563222016,
+      "descr": "HGST HUH728080AL5200",
+      "scheme": null,
+      "partitions": []
+    },
+    {
+      "name": "da17",
+      "ident": "ZDFJGT4N",
+      "lunid": "a82f3d9b2fe99544",
+      "mediasize": 8001563222016,
+      "descr": "HGST HUH728080AL5200",
+      "scheme": null,
+      "partitions": []
+    },
+    {
+      "name": "da18",
+      "ident": "J2T5ZVJB",
+      "lunid": "349babc7ffcf9b84",
+      "mediasize": 8001563222016,
+      "descr": "HGST HUH728080AL5200",
+      "scheme": null,
+      "partitions": []
+    },
+    {
+      "name": "da19",
+      "ident": "N7R6KEPU",
+      "lunid": "c3cb2c913a1751b6",
+      "mediasize": 8001563222016,
+      "descr": "HGST HUH728080AL5200",
+      "scheme": null,
+      "partitions": []
+    },
+    {
+      "name": "da20",
+      "ident": "AFLFC3UQ",
+      "lunid": "66a79258e8127bb7",
+      "mediasize": 8001563222016,
+      "descr": "HGST HUH728080AL5200",
+      "scheme": null,
+      "partitions": []
+    },
+    {
+      "name": "da21",
+      "ident": "VHK395XP",
+      "lunid": "1bd8869a943982aa",
+      "mediasize": 8001563222016,
+      "descr": "HGST HUH728080AL5200",
+      "scheme": null,
+      "partitions": []
+    },
+    {
+      "name": "da22",
+      "ident": "AYUA15LP",
+      "lunid": "df431f9e325dbfcc",
+      "mediasize": 8001563222016,
+      "descr": "HGST HUH728080AL5200",
+      "scheme": null,
+      "partitions": []
+    },
+    {
+      "name": "da23",
+      "ident": "KNCXXC5U",
+      "lunid": "e9f8ab27a5f75aa7",
+      "mediasize": 8001563222016,
+      "descr": "HGST HUH728080AL5200",
+      "scheme": null,
+      "partitions": []
+    },
+    {
+      "name": "da24",
+      "ident": "CYL8RZRD",
+      "lunid": "71b6935e45a71134",
+      "mediasize": 8001563222016,
+      "descr": "HGST HUH721008AL5200",
+      "scheme": null,
+      "partitions": []
+    },
+    {
+      "name": "da25",
+      "ident": "SME82X6N",
+      "lunid": "eb55389bb6dabd35",
+      "mediasize": 8001563222016,
+      "descr": "HGST HUH721008AL5200",
+      "scheme": null,
+      "partitions": []
+    },
+    {
+      "name": "da26",
+      "ident": "VKRSN45H",
+      "lunid": "40990538a4e906d8",
+      "mediasize": 8001563222016,
+      "descr": "HGST HUH721008AL5200",
+      "scheme": null,
+      "partitions": []
+    },
+    {
+      "name": "da27",
+      "ident": "PGS75J4U",
+      "lunid": "afca60295693ad73",
+      "mediasize": 8001563222016,
+      "descr": "HGST HUH721008AL5200",
+      "scheme": null,
+      "partitions": []
+    },
+    {
+      "name": "da28",
+      "ident": "7AH121PD",
+      "lunid": "c793ad050fe7385e",
+      "mediasize": 16000900661248,
+      "descr": "WDC WUH721816AL5204",
+      "scheme": null,
+      "partitions": []
+    },
+    {
+      "name": "da29",
+      "ident": "KUV1MGDP",
+      "lunid": "9ec4d2cf3f22ffdd",
+      "mediasize": 8001563222016,
+      "descr": "HGST HUH721008AL5200",
+      "scheme": null,
+      "partitions": []
+    },
+    {
+      "name": "da30",
+      "ident": "VPUN999Y",
+      "lunid": "c6311d9b497f1289",
+      "mediasize": 8001563222016,
+      "descr": "HGST HUH721008AL5200",
+      "scheme": "GPT",
+      "partitions": [
+        {
+          "provider": "da30p1",
+          "index": 1,
+          "type": "freebsd-zfs",
+          "label": "hog-VPUN999Y-spare",
+          "length": 8001563181056
+        }
+      ]
+    },
+    {
+      "name": "da31",
+      "ident": "GMTQMN6P",
+      "lunid": "9998a696efb73dac",
+      "mediasize": 8001563222016,
+      "descr": "HGST HUH721008AL5200",
+      "scheme": null,
+      "partitions": []
+    },
+    {
+      "name": "da32",
+      "ident": "1KX72XKK",
+      "lunid": "b3fc85b433a16caf",
+      "mediasize": 16000900661248,
+      "descr": "WDC WUH721816AL5204",
+      "scheme": null,
+      "partitions": []
+    },
+    {
+      "name": "da33",
+      "ident": "FGH6UV3S",
+      "lunid": "3d8531308deb5126",
+      "mediasize": 8001563222016,
+      "descr": "HGST HUH721008AL5200",
+      "scheme": "GPT",
+      "partitions": [
+        {
+          "provider": "da33p1",
+          "index": 1,
+          "type": "freebsd-zfs",
+          "label": "hog-FGH6UV3S-spare",
+          "length": 8001563181056
+        }
+      ]
+    },
+    {
+      "name": "da34",
+      "ident": "FGD8Z0JR",
+      "lunid": "3ec8d8cf352ed23b",
+      "mediasize": 8001563222016,
+      "descr": "HGST HUH721008AL5200",
+      "scheme": "GPT",
+      "partitions": [
+        {
+          "provider": "da34p1",
+          "index": 1,
+          "type": "freebsd-zfs",
+          "label": "hog-FGD8Z0JR-spare",
+          "length": 8001563181056
+        }
+      ]
+    },
+    {
+      "name": "da35",
+      "ident": "LQF130NE",
+      "lunid": "9da4e7f4085737fb",
+      "mediasize": 8001563222016,
+      "descr": "HGST HUH721008AL5200",
+      "scheme": "GPT",
+      "partitions": [
+        {
+          "provider": "da35p1",
+          "index": 1,
+          "type": "freebsd-zfs",
+          "label": "hog-LQF130NE-spare",
+          "length": 8001563181056
+        }
+      ]
+    },
+    {
+      "name": "da36",
+      "ident": "7XK2PYBY",
+      "lunid": "e15d5d1b393ec200",
+      "mediasize": 16000900661248,
+      "descr": "WDC WUH721816AL5204",
+      "scheme": null,
+      "partitions": []
+    },
+    {
+      "name": "da37",
+      "ident": "3GK09LGK",
+      "lunid": "b7215711b9dbf5d4",
+      "mediasize": 16000900661248,
+      "descr": "WDC WUH721816AL5204",
+      "scheme": null,
+      "partitions": []
+    },
+    {
+      "name": "da38",
+      "ident": "4ZY83R4T",
+      "lunid": "db9daa3d1874273f",
+      "mediasize": 16000900661248,
+      "descr": "WDC WUH721816AL5204",
+      "scheme": null,
+      "partitions": []
+    },
+    {
+      "name": "da39",
+      "ident": "1GY3CQ2U",
+      "lunid": "031a393c092da5a5",
+      "mediasize": 16000900661248,
+      "descr": "WDC WUH721816AL5204",
+      "scheme": null,
+      "partitions": []
+    },
+    {
+      "name": "da40",
+      "ident": "6LA1SV9B",
+      "lunid": "c37a9a5ca80d9b74",
+      "mediasize": 16000900661248,
+      "descr": "WDC WUH721816AL5204",
+      "scheme": null,
+      "partitions": []
+    },
+    {
+      "name": "da41",
+      "ident": "4GA3XZYV",
+      "lunid": "a003ce6b66e942b3",
+      "mediasize": 16000900661248,
+      "descr": "WDC WUH721816AL5204",
+      "scheme": null,
+      "partitions": []
+    },
+    {
+      "name": "da42",
+      "ident": "5MT7K0HP",
+      "lunid": "17d1af2239162da6",
+      "mediasize": 16000900661248,
+      "descr": "WDC WUH721816AL5204",
+      "scheme": null,
+      "partitions": []
+    },
+    {
+      "name": "da43",
+      "ident": "8QZ185YQ",
+      "lunid": "e6aa3063ee34f7df",
+      "mediasize": 16000900661248,
+      "descr": "WDC WUH721816AL5204",
+      "scheme": null,
+      "partitions": []
+    },
+    {
+      "name": "da44",
+      "ident": "0QA796NV",
+      "lunid": "2e6333edaf7a41eb",
+      "mediasize": 16000900661248,
+      "descr": "WDC WUH721816AL5204",
+      "scheme": null,
+      "partitions": []
+    },
+    {
+      "name": "da45",
+      "ident": "4RR63NHT",
+      "lunid": "9c1c5ef2488f9e4f",
+      "mediasize": 16000900661248,
+      "descr": "WDC WUH721816AL5204",
+      "scheme": null,
+      "partitions": []
+    },
+    {
+      "name": "da46",
+      "ident": "4QK2W3BV",
+      "lunid": "fa47270e0474d077",
+      "mediasize": 16000900661248,
+      "descr": "WDC WUH721816AL5204",
+      "scheme": null,
+      "partitions": []
+    },
+    {
+      "name": "da47",
+      "ident": "3XVG6PWM",
+      "lunid": "7a4840aa9ece4982",
+      "mediasize": 16000900661248,
+      "descr": "WDC WUH721816AL5204",
+      "scheme": null,
+      "partitions": []
+    },
+    {
+      "name": "da48",
+      "ident": "7NU81ERJ",
+      "lunid": "5fd328ecc7ab9216",
+      "mediasize": 16000900661248,
+      "descr": "WDC WUH721816AL5204",
+      "scheme": null,
+      "partitions": []
+    },
+    {
+      "name": "da49",
+      "ident": "0HW5YKWN",
+      "lunid": "c0980a4e4d3988a2",
+      "mediasize": 16000900661248,
+      "descr": "WDC WUH721816AL5204",
+      "scheme": null,
+      "partitions": []
+    },
+    {
+      "name": "da50",
+      "ident": "4CB5QAQF",
+      "lunid": "498915258fedb919",
+      "mediasize": 16000900661248,
+      "descr": "WDC WUH721816AL5204",
+      "scheme": null,
+      "partitions": []
+    },
+    {
+      "name": "da51",
+      "ident": "6SC9597W",
+      "lunid": "8936b8a821f29776",
+      "mediasize": 16000900661248,
+      "descr": "WDC WUH721816AL5204",
+      "scheme": null,
+      "partitions": []
+    },
+    {
+      "name": "da52",
+      "ident": "1RX6MWXZ",
+      "lunid": "d6fbfd5443ad2df4",
+      "mediasize": 16000900661248,
+      "descr": "WDC WUH721816AL5204",
+      "scheme": null,
+      "partitions": []
+    },
+    {
+      "name": "da53",
+      "ident": "0SX228UC",
+      "lunid": "cfd61228ef26e3f7",
+      "mediasize": 16000900661248,
+      "descr": "WDC WUH721816AL5204",
+      "scheme": null,
+      "partitions": []
+    },
+    {
+      "name": "da54",
+      "ident": "2HM60KBQ",
+      "lunid": "413a75f4966db30f",
+      "mediasize": 16000900661248,
+      "descr": "WDC WUH721816AL5204",
+      "scheme": null,
+      "partitions": []
+    },
+    {
+      "name": "da55",
+      "ident": "1ZD8V3DR",
+      "lunid": "652deeed75859c2b",
+      "mediasize": 16000900661248,
+      "descr": "WDC WUH721816AL5204",
+      "scheme": null,
+      "partitions": []
+    },
+    {
+      "name": "da56",
+      "ident": "8GK9NNZU",
+      "lunid": "4f98bb00f1ffc5df",
+      "mediasize": 16000900661248,
+      "descr": "WDC WUH721816AL5204",
+      "scheme": null,
+      "partitions": []
+    },
+    {
+      "name": "da57",
+      "ident": "TMKTXFDQ0164R339BPZL",
+      "lunid": "d30d6f60cb7ed23a",
+      "mediasize": 8001563222016,
+      "descr": "SEAGATE ST8000NM020B",
+      "scheme": "GPT",
+      "partitions": [
+        {
+          "provider": "da57p1",
+          "index": 1,
+          "type": "freebsd-zfs",
+          "label": "hog-TMKTXFDQ",
+          "length": 8001563181056
+        }
+      ]
+    },
+    {
+      "name": "da58",
+      "ident": "TL42G0L0",
+      "lunid": "26b2026bacc25118",
+      "mediasize": 16000900661248,
+      "descr": "SEAGATE ST16000NM007H",
+      "scheme": "GPT",
+      "partitions": [
+        {
+          "provider": "da58p1",
+          "index": 1,
+          "type": "freebsd-zfs",
+          "label": "bigpool-TL42G0L0",
+          "length": 16000900620288
+        }
+      ]
+    },
+    {
+      "name": "ada0",
+      "ident": "694270P9E65S",
+      "lunid": "8bbf116beded062d",
+      "mediasize": 256060514304,
+      "descr": "Micron 1100 MTFDDAK256TBN",
+      "scheme": "GPT",
+      "partitions": [
+        {
+          "provider": "ada0p1",
+          "index": 1,
+          "type": "freebsd-boot",
+          "label": "gptboot0",
+          "length": 524288
+        },
+        {
+          "provider": "ada0p2",
+          "index": 2,
+          "type": "freebsd-swap",
+          "label": "swap0",
+          "length": 2147483648
+        },
+        {
+          "provider": "ada0p3",
+          "index": 3,
+          "type": "freebsd-zfs",
+          "label": "zfs0",
+          "length": 253911629824
+        }
+      ]
+    },
+    {
+      "name": "ada1",
+      "ident": "885489E5A670",
+      "lunid": "c0494ffb96b33999",
+      "mediasize": 256060514304,
+      "descr": "Micron 1100 MTFDDAK256TBN",
+      "scheme": "GPT",
+      "partitions": [
+        {
+          "provider": "ada1p1",
+          "index": 1,
+          "type": "freebsd-boot",
+          "label": "gptboot1",
+          "length": 524288
+        },
+        {
+          "provider": "ada1p2",
+          "index": 2,
+          "type": "freebsd-swap",
+          "label": "swap1",
+          "length": 2147483648
+        },
+        {
+          "provider": "ada1p3",
+          "index": 3,
+          "type": "freebsd-zfs",
+          "label": "zfs1",
+          "length": 253911629824
+        }
+      ]
+    }
+  ]
+}

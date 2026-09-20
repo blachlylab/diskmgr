@@ -1,5 +1,6 @@
 use std::path::{Path, PathBuf};
 
+use super::geom::{GeomDisk, find_geom_file, load_geom_disks};
 use super::sesutil::{SesEnclosure, parse_sesutil_named};
 use crate::error::{Error, Result};
 
@@ -7,6 +8,8 @@ use crate::error::{Error, Result};
 pub struct FixtureProbe {
     pub source: PathBuf,
     pub enclosures: Vec<SesEnclosure>,
+    pub disks: Vec<GeomDisk>,
+    pub geom_probed: bool,
 }
 
 impl FixtureProbe {
@@ -17,11 +20,20 @@ impl FixtureProbe {
         let map = read(&map_path)?;
         let show = read(&show_path)?;
         let status = read(&status_path)?;
-        let enclosures =
+        let mut enclosures =
             parse_sesutil_named(&map, &show, &status, &map_path, &show_path, &status_path)?;
+        let (disks, geom_probed) = match find_geom_file(dir) {
+            Some(path) => (load_geom_disks(&path)?, true),
+            None => (Vec::new(), false),
+        };
+        if geom_probed {
+            attach_geom(&mut enclosures, &disks);
+        }
         Ok(Self {
             source: dir.to_path_buf(),
             enclosures,
+            disks,
+            geom_probed,
         })
     }
 
@@ -31,6 +43,35 @@ impl FixtureProbe {
 
     pub fn by_unit(&self, unit: &str) -> Option<&SesEnclosure> {
         self.enclosures.iter().find(|e| e.enc == unit)
+    }
+}
+
+fn attach_geom(enclosures: &mut [SesEnclosure], disks: &[GeomDisk]) {
+    use std::collections::HashMap;
+    let by_name: HashMap<&str, &GeomDisk> = disks.iter().map(|d| (d.name.as_str(), d)).collect();
+    let by_ident: HashMap<&str, &GeomDisk> = disks
+        .iter()
+        .filter_map(|d| d.ident.as_deref().map(|id| (id, d)))
+        .collect();
+    for enc in enclosures {
+        for bay in &mut enc.bays {
+            let disk = bay
+                .serial
+                .as_deref()
+                .and_then(|s| by_ident.get(s).copied())
+                .or_else(|| {
+                    bay.kernel_disk
+                        .as_deref()
+                        .and_then(|n| by_name.get(n).copied())
+                });
+            let Some(disk) = disk else {
+                continue;
+            };
+            bay.geom_known = true;
+            bay.wwn = disk.lunid.clone();
+            bay.gpt_scheme = disk.scheme.clone();
+            bay.gpt_partitions = disk.partitions.clone();
+        }
     }
 }
 
@@ -130,6 +171,22 @@ mod tests {
         assert_eq!(silk0.cell, crate::layout::Cell { col: 0, row: 2 });
         let empty = rear.slots.iter().find(|s| s.silk == 6).unwrap();
         assert!(empty.bay.as_ref().unwrap().kernel_disk.is_none());
+        assert!(inv.geom_probed);
+
+        let da0 = front.slot_by_silk(0).unwrap();
+        assert_eq!(da0.gpt_summary().as_deref(), Some("no"));
+        assert!(da0.wwn().is_some());
+
+        // ses1 Slot09 is da33, GPT spare labeled with scrambled serial
+        let spare = rear.slot_by_silk(9).unwrap();
+        assert_eq!(
+            spare.bay.as_ref().unwrap().kernel_disk.as_deref(),
+            Some("da33")
+        );
+        assert_eq!(
+            spare.gpt_summary().as_deref(),
+            Some("gpt/hog-FGH6UV3S-spare")
+        );
     }
 
     #[test]

@@ -1,13 +1,14 @@
 use crate::config::{Config, EnclosureConfig};
 use crate::error::Result;
 use crate::layout::Cell;
-use crate::probe::{FixtureProbe, SesBay, SesEnclosure};
+use crate::probe::{FixtureProbe, GptPartition, SesBay, SesEnclosure};
 
 /// Config geometry joined with live/fixture SES occupancy.
 #[derive(Clone, Debug)]
 pub struct Inventory {
     pub host_name: Option<String>,
     pub enclosures: Vec<MappedEnclosure>,
+    pub geom_probed: bool,
 }
 
 #[derive(Clone, Debug)]
@@ -56,6 +57,7 @@ impl Inventory {
         Ok(Self {
             host_name: config.host.name.clone(),
             enclosures,
+            geom_probed: probe.geom_probed,
         })
     }
 }
@@ -89,5 +91,40 @@ impl MappedSlot {
 
     pub fn fault(&self) -> bool {
         self.bay.as_ref().is_some_and(|b| b.fault)
+    }
+
+    pub fn wwn(&self) -> Option<&str> {
+        self.bay.as_ref().and_then(|b| b.wwn.as_deref())
+    }
+
+    pub fn gpt_partitions(&self) -> &[GptPartition] {
+        self.bay
+            .as_ref()
+            .map(|b| b.gpt_partitions.as_slice())
+            .unwrap_or(&[])
+    }
+
+    pub fn gpt_summary(&self) -> Option<String> {
+        let bay = self.bay.as_ref()?;
+        if !bay.geom_known {
+            return None;
+        }
+        let labels: Vec<String> = bay
+            .gpt_partitions
+            .iter()
+            .map(|p| p.display_name())
+            .collect();
+        if !labels.is_empty() {
+            return Some(labels.join(", "));
+        }
+        if bay
+            .gpt_scheme
+            .as_deref()
+            .is_some_and(|s| s.eq_ignore_ascii_case("GPT"))
+        {
+            Some("GPT (unlabeled)".into())
+        } else {
+            Some("no".into())
+        }
     }
 }

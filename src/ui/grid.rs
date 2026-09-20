@@ -35,8 +35,8 @@ pub fn draw(frame: &mut Frame, app: &App, area: Rect) {
                     .map(fmt_size)
                     .unwrap_or_else(|| "—".into()),
             ),
-            cell("—"),
-            cell("—"),
+            cell(dash(slot.wwn())),
+            cell(dash(slot.gpt_summary().as_deref())),
             cell("—"),
             cell("—"),
             cell("—"),
