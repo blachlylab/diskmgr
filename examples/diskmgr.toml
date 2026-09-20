@@ -1,0 +1,30 @@
+# Example diskmgr config. Geometry is fictional-but-typical SuperMicro:
+# 24-bay front plane, silk-screen from bottom-left, filling up each column.
+# See docs/PRODUCT.md §8.
+
+[host]
+name = "storage1"
+
+[[enclosure]]
+name = "sm846-front"
+chassis = "sm846"
+face = "front"
+ses_device = "ses0"
+enclosure_id = "500304801820593f"
+ncols = 6
+nrows = 4
+origin = "BL"
+fill = "column"
+slot_index_base = 0
+
+# Rear 12-bay plane of the same chassis (illustrative).
+[[enclosure]]
+name = "sm846-rear"
+chassis = "sm846"
+face = "back"
+ses_device = "ses1"
+ncols = 6
+nrows = 2
+origin = "BL"
+fill = "column"
+slot_index_base = 0
