@@ -10,6 +10,8 @@ pub struct Inventory {
     pub enclosures: Vec<MappedEnclosure>,
     pub geom_probed: bool,
     pub zfs_probed: bool,
+    pub probe_label: String,
+    pub warnings: Vec<String>,
 }
 
 #[derive(Clone, Debug)]
@@ -60,6 +62,12 @@ impl Inventory {
             enclosures,
             geom_probed: probe.geom_probed,
             zfs_probed: probe.zfs_probed,
+            probe_label: if probe.is_live() {
+                "live".into()
+            } else {
+                format!("fixture {}", probe.source.display())
+            },
+            warnings: probe.warnings.clone(),
         })
     }
 }

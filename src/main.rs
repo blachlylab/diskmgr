@@ -1,6 +1,6 @@
 use std::path::PathBuf;
 
-use anyhow::{Context, bail};
+use anyhow::Context;
 use clap::Parser;
 use diskmgr::app::Key;
 use diskmgr::{App, Config, FixtureProbe, Inventory};
@@ -22,13 +22,17 @@ fn main() -> anyhow::Result<()> {
     let args = Args::parse();
     let (_config_path, config) =
         Config::find_and_load(args.config.as_deref()).with_context(|| "loading config")?;
-    let Some(fixture_dir) = args.fixture else {
-        bail!("live FreeBSD probe is not implemented yet; pass --fixture DIR");
+    let probe = if let Some(fixture_dir) = args.fixture {
+        FixtureProbe::load(&fixture_dir)
+            .with_context(|| format!("loading fixture {}", fixture_dir.display()))?
+    } else {
+        FixtureProbe::live().context("live FreeBSD probe")?
     };
-    let probe = FixtureProbe::load(&fixture_dir)
-        .with_context(|| format!("loading fixture {}", fixture_dir.display()))?;
     let inventory = Inventory::from_fixture(&config, &probe)?;
     let mut app = App::new(inventory);
+    if !probe.warnings.is_empty() {
+        app.notice = Some(probe.warnings.join(" · "));
+    }
     ratatui::run(|terminal| run_app(terminal, &mut app)).context("running TUI")?;
     Ok(())
 }

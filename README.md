@@ -9,8 +9,8 @@ map** so operators can swap disks and add spares without guessing.
 
 ## Status
 
-Specification and crate stub. Behavior is defined in
-[`docs/PRODUCT.md`](docs/PRODUCT.md). Implementation notes for agents:
+TUI + fixture probes on macOS; live FreeBSD probes (`sesutil`, `gpart`/`geom`,
+`zpool status -P`). Spec: [`docs/PRODUCT.md`](docs/PRODUCT.md). Agent notes:
 [`AGENTS.md`](AGENTS.md).
 
 ## What it will do
@@ -51,6 +51,15 @@ cargo test
 cargo run -- --config examples/diskmgr.toml --fixture examples/sesutil
 ```
 
-Fullscreen TUI: `1` shelf map (picker, then ASCII grid + status panel), `2`
-spreadsheet. ESC backs up; ESC on the main menu quits. Captured `sesutil`
-JSON lives in `examples/sesutil/`.
+On FreeBSD 13 (as root; rustc 1.85+ / Ratatui needs ~1.88):
+
+```
+diskmgr --config /usr/local/etc/diskmgr.toml
+```
+
+Omit `--fixture` to run `sesutil --libxo json`, `geom disk list`, `gpart list`
+(text — JSON libxo is ignored on 13), and `zpool status -P`. A failed source
+becomes a footer warning; the rest still load.
+
+Fullscreen TUI: `1` shelf map, `2` spreadsheet. ESC backs up; ESC on the main
+menu quits.

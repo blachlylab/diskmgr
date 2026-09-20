@@ -444,8 +444,8 @@ Abstract behind a `Probe` trait (name flexible):
 
 Implementations:
 
-- `FreebsdProbe` — real commands
-- `FixtureProbe` — replay recorded `sesutil` JSON (same parser as live)
+- `FixtureProbe::live()` — FreeBSD: `sesutil --libxo json`, text `gpart`/`geom`, `zpool status -P`
+- `FixtureProbe::load(dir)` — recorded fixtures (macOS / tests)
 - Later: `LinuxProbe`
 
 The TUI must run on a machine with **no SES devices** using fixtures, so the
@@ -555,8 +555,8 @@ ses2 Slot00=`da50`, ses2 Slot07=`da28`. ses0 looking “clean” is a trap.
 v1:
 
 ```
-diskmgr [--config PATH]
-diskmgr --fixture DIR           # replay DIR/{map,show,status}.json
+diskmgr [--config PATH]         # live FreeBSD probe
+diskmgr --fixture DIR           # replay DIR/{map,show,status}.json (+ sibling geom/zfs)
 ```
 
 Deferred:
@@ -629,11 +629,11 @@ Build in this order so each step is demoable:
 3. Fixture probe + enclosure picker
 4. ASCII map + arrow/tab focus + status panel (fixture data)
 5. Disk grid view (same model, sortable)
-6. FreeBSD `sesutil` probe (occupancy, LEDs, `da` names)
-7. `diskinfo` / CAM identity (serial, model, size, WWN)
-8. GPT + mounts
-9. ZFS pool / vdev / role
-10. (Later) LED toggle, dump CSV, Linux, web
+6. FreeBSD `sesutil` probe (occupancy, LEDs, `da` names) — live
+7. Identity via `sesutil show` + `geom disk list` (`ident`/`lunid`) — live
+8. GPT via text `gpart list` (libxo JSON not available on lab 13.x) — live
+9. ZFS via `zpool status -P` — live
+10. (Later) LED toggle, dump CSV, mounts, `zpool status -j`, Linux, web
 
 ---
 

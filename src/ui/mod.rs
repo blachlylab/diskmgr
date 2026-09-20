@@ -64,6 +64,11 @@ fn title_bar(app: &App) -> Paragraph<'static> {
         Span::raw("  "),
         Span::styled(host, Style::new().fg(Color::Cyan)),
         Span::raw("  ·  "),
+        Span::styled(
+            app.inventory.probe_label.clone(),
+            Style::new().fg(Color::DarkGray),
+        ),
+        Span::raw("  ·  "),
         Span::raw(subtitle),
     ]))
     .block(Block::bordered())

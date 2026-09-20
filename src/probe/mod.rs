@@ -1,4 +1,5 @@
 mod fixture;
+mod freebsd;
 mod geom;
 mod sesutil;
 mod zfs;

@@ -25,11 +25,11 @@ The crate is currently a stub. Implement against the spec, not against
    `slot_index_base` are required to draw a map.
 4. **Silk-screen slot ≠ SES element id.** Store both. The grid shows silk-screen
    numbers from config; LED/sesutil calls will use SES ids.
-5. **Probes are swappable.** UI must run on macOS (this workspace) via
-   `FixtureProbe` replaying [`examples/sesutil/`](examples/sesutil/). Parse
-   that JSON with the same code as live `sesutil --libxo json`. Do not call
-   `sesutil` unless the OS is FreeBSD (or the user asked to implement that
-   backend). Parser contract: [`docs/PRODUCT.md`](docs/PRODUCT.md) §9.5.
+5. **Probes are swappable.** UI must run on macOS via `FixtureProbe`
+   (`--fixture examples/sesutil`). Live `FixtureProbe::live()` runs only on
+   FreeBSD: `sesutil --libxo json`, **text** `gpart list` / `geom disk list`
+   (libxo JSON is ignored on 13.x), `zpool status -P`. Per-source failures
+   are warnings, not a hard crash. Parser contract: [`docs/PRODUCT.md`](docs/PRODUCT.md) §9.5.
 6. **ESC is a back stack**, not a universal quit. Quit only from the main menu.
 7. **No extra product surface:** no daemon, no DB, no second TUI library, no
    web framework.

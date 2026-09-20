@@ -5,7 +5,7 @@ use super::sesutil::{SesBay, SesEnclosure, parse_sesutil_named};
 use super::zfs::{ZfsUsage, find_zfs_file, gpt_label_from_path, kernel_leaf, load_zpool_status};
 use crate::error::{Error, Result};
 
-/// Replay recorded `sesutil --libxo json` output from a directory.
+/// Snapshot of SES + geom + ZFS, from a fixture directory or a live probe.
 pub struct FixtureProbe {
     pub source: PathBuf,
     pub enclosures: Vec<SesEnclosure>,
@@ -13,6 +13,7 @@ pub struct FixtureProbe {
     pub geom_probed: bool,
     pub zfs: Vec<ZfsUsage>,
     pub zfs_probed: bool,
+    pub warnings: Vec<String>,
 }
 
 impl FixtureProbe {
@@ -46,7 +47,16 @@ impl FixtureProbe {
             geom_probed,
             zfs,
             zfs_probed,
+            warnings: Vec::new(),
         })
+    }
+
+    pub fn live() -> Result<Self> {
+        super::freebsd::live_probe()
+    }
+
+    pub fn is_live(&self) -> bool {
+        self.source.as_os_str() == "live"
     }
 
     pub fn by_id(&self, id: &str) -> Option<&SesEnclosure> {
@@ -58,7 +68,7 @@ impl FixtureProbe {
     }
 }
 
-fn attach_geom(enclosures: &mut [SesEnclosure], disks: &[GeomDisk]) {
+pub(crate) fn attach_geom(enclosures: &mut [SesEnclosure], disks: &[GeomDisk]) {
     use std::collections::HashMap;
     let by_name: HashMap<&str, &GeomDisk> = disks.iter().map(|d| (d.name.as_str(), d)).collect();
     let by_ident: HashMap<&str, &GeomDisk> = disks
@@ -87,7 +97,7 @@ fn attach_geom(enclosures: &mut [SesEnclosure], disks: &[GeomDisk]) {
     }
 }
 
-fn attach_zfs(enclosures: &mut [SesEnclosure], usages: &[ZfsUsage]) {
+pub(crate) fn attach_zfs(enclosures: &mut [SesEnclosure], usages: &[ZfsUsage]) {
     for enc in enclosures {
         for bay in &mut enc.bays {
             bay.zfs = usages
