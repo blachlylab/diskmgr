@@ -1,30 +1,66 @@
-# Example diskmgr config. Geometry is fictional-but-typical SuperMicro:
-# 24-bay front plane, silk-screen from bottom-left, filling up each column.
-# See docs/PRODUCT.md §8.
+# Lab config. Geometry confirmed with the operator:
+#   24-bay SC846: 6×4, slot 0 bottom-left, fill up the column, 0-based
+#   12-bay LSI: rear of the first SC846, 4×3, same origin/fill/base
+#   AHCI SGPIO: shown in the picker; 1-row layout is an assumption
+# Join live probes by enclosure `id`, not by sesN.
+# See docs/PRODUCT.md §8 and §9.5.
 
 [host]
 name = "storage1"
 
 [[enclosure]]
-name = "sm846-front"
-chassis = "sm846"
+name = "SMC SC846P 0c1f"
+chassis = "sc846p-0c1f"
 face = "front"
 ses_device = "ses0"
-enclosure_id = "500304801820593f"
+enclosure_id = "50030480186d133f"
 ncols = 6
 nrows = 4
 origin = "BL"
 fill = "column"
 slot_index_base = 0
 
-# Rear 12-bay plane of the same chassis (illustrative).
+# Rear 12-bay plane of the same chassis.
 [[enclosure]]
-name = "sm846-rear"
-chassis = "sm846"
+name = "LSI SAS3x28 0601"
+chassis = "sc846p-0c1f"
 face = "back"
 ses_device = "ses1"
-ncols = 6
-nrows = 2
+enclosure_id = "500304801f48f13f"
+ncols = 4
+nrows = 3
 origin = "BL"
 fill = "column"
+slot_index_base = 0
+
+[[enclosure]]
+name = "SMC SC846-P 100b"
+chassis = "sc846p-100b"
+face = "front"
+ses_device = "ses2"
+enclosure_id = "500304802125927f"
+ncols = 6
+nrows = 4
+origin = "BL"
+fill = "column"
+slot_index_base = 0
+
+[[enclosure]]
+name = "AHCI SGPIO (empty)"
+ses_device = "ses3"
+enclosure_id = "3061686369656d30"
+ncols = 4
+nrows = 1
+origin = "TL"
+fill = "row"
+slot_index_base = 0
+
+[[enclosure]]
+name = "AHCI SGPIO (boot)"
+ses_device = "ses4"
+enclosure_id = "3061686369656d31"
+ncols = 6
+nrows = 1
+origin = "TL"
+fill = "row"
 slot_index_base = 0

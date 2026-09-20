@@ -1,0 +1,1459 @@
+{
+  "__version": "1",
+  "sesutil": {
+    "enclosures": [
+      {
+        "enc": "ses0",
+        "name": "SMC SC846P 0c1f",
+        "id": "50030480186d133f",
+        "elements": [
+          {
+            "id": 0,
+            "type": "Array Device Slot",
+            "status": "Unsupported",
+            "status_code": "0x00 0x00 0x00 0x00",
+            "description": "ArrayDevicesInSubEnclsr0"
+          },
+          {
+            "id": 1,
+            "type": "Array Device Slot",
+            "status": "OK",
+            "status_code": "0x01 0x00 0x00 0x00",
+            "description": "Slot00",
+            "device_names": "da0,pass0"
+          },
+          {
+            "id": 2,
+            "type": "Array Device Slot",
+            "status": "OK",
+            "status_code": "0x01 0x00 0x00 0x00",
+            "description": "Slot01",
+            "device_names": "da1,pass1"
+          },
+          {
+            "id": 3,
+            "type": "Array Device Slot",
+            "status": "OK",
+            "status_code": "0x01 0x00 0x00 0x00",
+            "description": "Slot02",
+            "device_names": "da2,pass2"
+          },
+          {
+            "id": 4,
+            "type": "Array Device Slot",
+            "status": "OK",
+            "status_code": "0x01 0x00 0x00 0x00",
+            "description": "Slot03",
+            "device_names": "da3,pass3"
+          },
+          {
+            "id": 5,
+            "type": "Array Device Slot",
+            "status": "OK",
+            "status_code": "0x01 0x00 0x00 0x00",
+            "description": "Slot04",
+            "device_names": "da4,pass4"
+          },
+          {
+            "id": 6,
+            "type": "Array Device Slot",
+            "status": "OK",
+            "status_code": "0x01 0x00 0x00 0x00",
+            "description": "Slot05",
+            "device_names": "da5,pass5"
+          },
+          {
+            "id": 7,
+            "type": "Array Device Slot",
+            "status": "OK",
+            "status_code": "0x01 0x00 0x00 0x00",
+            "description": "Slot06",
+            "device_names": "da6,pass6"
+          },
+          {
+            "id": 8,
+            "type": "Array Device Slot",
+            "status": "OK",
+            "status_code": "0x01 0x00 0x00 0x00",
+            "description": "Slot07",
+            "device_names": "da7,pass7"
+          },
+          {
+            "id": 9,
+            "type": "Array Device Slot",
+            "status": "OK",
+            "status_code": "0x01 0x00 0x00 0x00",
+            "description": "Slot08",
+            "device_names": "da8,pass8"
+          },
+          {
+            "id": 10,
+            "type": "Array Device Slot",
+            "status": "OK",
+            "status_code": "0x01 0x00 0x00 0x00",
+            "description": "Slot09",
+            "device_names": "da9,pass9"
+          },
+          {
+            "id": 11,
+            "type": "Array Device Slot",
+            "status": "OK",
+            "status_code": "0x01 0x00 0x00 0x00",
+            "description": "Slot10",
+            "device_names": "da10,pass10"
+          },
+          {
+            "id": 12,
+            "type": "Array Device Slot",
+            "status": "OK",
+            "status_code": "0x01 0x00 0x00 0x00",
+            "description": "Slot11",
+            "device_names": "da11,pass11"
+          },
+          {
+            "id": 13,
+            "type": "Array Device Slot",
+            "status": "OK",
+            "status_code": "0x01 0x00 0x00 0x00",
+            "description": "Slot12",
+            "device_names": "da12,pass12"
+          },
+          {
+            "id": 14,
+            "type": "Array Device Slot",
+            "status": "OK",
+            "status_code": "0x01 0x00 0x00 0x00",
+            "description": "Slot13",
+            "device_names": "da13,pass13"
+          },
+          {
+            "id": 15,
+            "type": "Array Device Slot",
+            "status": "OK",
+            "status_code": "0x01 0x00 0x00 0x00",
+            "description": "Slot14",
+            "device_names": "da14,pass14"
+          },
+          {
+            "id": 16,
+            "type": "Array Device Slot",
+            "status": "OK",
+            "status_code": "0x11 0x00 0x00 0x00",
+            "description": "Slot15",
+            "device_names": "da15,pass15",
+            "extra_status": {
+              "swapped": "true"
+            }
+          },
+          {
+            "id": 17,
+            "type": "Array Device Slot",
+            "status": "OK",
+            "status_code": "0x11 0x00 0x00 0x00",
+            "description": "Slot16",
+            "device_names": "da16,pass16",
+            "extra_status": {
+              "swapped": "true"
+            }
+          },
+          {
+            "id": 18,
+            "type": "Array Device Slot",
+            "status": "OK",
+            "status_code": "0x01 0x00 0x00 0x00",
+            "description": "Slot17",
+            "device_names": "da17,pass17"
+          },
+          {
+            "id": 19,
+            "type": "Array Device Slot",
+            "status": "OK",
+            "status_code": "0x01 0x00 0x00 0x00",
+            "description": "Slot18",
+            "device_names": "da18,pass18"
+          },
+          {
+            "id": 20,
+            "type": "Array Device Slot",
+            "status": "OK",
+            "status_code": "0x01 0x00 0x00 0x00",
+            "description": "Slot19",
+            "device_names": "da19,pass19"
+          },
+          {
+            "id": 21,
+            "type": "Array Device Slot",
+            "status": "OK",
+            "status_code": "0x01 0x00 0x00 0x00",
+            "description": "Slot20",
+            "device_names": "da20,pass20"
+          },
+          {
+            "id": 22,
+            "type": "Array Device Slot",
+            "status": "OK",
+            "status_code": "0x01 0x00 0x00 0x00",
+            "description": "Slot21",
+            "device_names": "da21,pass21"
+          },
+          {
+            "id": 23,
+            "type": "Array Device Slot",
+            "status": "OK",
+            "status_code": "0x01 0x00 0x00 0x00",
+            "description": "Slot22",
+            "device_names": "da22,pass22"
+          },
+          {
+            "id": 24,
+            "type": "Array Device Slot",
+            "status": "OK",
+            "status_code": "0x01 0x00 0x00 0x00",
+            "description": "Slot23",
+            "device_names": "da23,pass23"
+          },
+          {
+            "id": 25,
+            "type": "SAS Expander",
+            "status": "Unsupported",
+            "status_code": "0x00 0x00 0x00 0x00",
+            "description": "SAS Expander"
+          },
+          {
+            "id": 26,
+            "type": "SAS Expander",
+            "status": "OK",
+            "status_code": "0x01 0x00 0x00 0x00",
+            "description": "Expander0"
+          },
+          {
+            "id": 27,
+            "type": "SAS Connector",
+            "status": "Unsupported",
+            "status_code": "0x00 0x00 0x00 0x00",
+            "description": "SAS Connectors"
+          },
+          {
+            "id": 28,
+            "type": "SAS Connector",
+            "status": "OK",
+            "status_code": "0x01 0x12 0x00 0x00",
+            "description": "ConnectorA "
+          },
+          {
+            "id": 29,
+            "type": "SAS Connector",
+            "status": "OK",
+            "status_code": "0x01 0x12 0x00 0x00",
+            "description": "ConnectorB "
+          },
+          {
+            "id": 30,
+            "type": "SAS Connector",
+            "status": "OK",
+            "status_code": "0x01 0x12 0x00 0x00",
+            "description": "ConnectorC "
+          },
+          {
+            "id": 31,
+            "type": "SAS Connector",
+            "status": "OK",
+            "status_code": "0x01 0x12 0x00 0x00",
+            "description": "ConnectorD "
+          },
+          {
+            "id": 32,
+            "type": "SAS Connector",
+            "status": "OK",
+            "status_code": "0x01 0x20 0x00 0x00",
+            "description": "Drive Connector 00"
+          },
+          {
+            "id": 33,
+            "type": "SAS Connector",
+            "status": "OK",
+            "status_code": "0x01 0x20 0x00 0x00",
+            "description": "Drive Connector 01"
+          },
+          {
+            "id": 34,
+            "type": "SAS Connector",
+            "status": "OK",
+            "status_code": "0x01 0x20 0x00 0x00",
+            "description": "Drive Connector 02"
+          },
+          {
+            "id": 35,
+            "type": "SAS Connector",
+            "status": "OK",
+            "status_code": "0x01 0x20 0x00 0x00",
+            "description": "Drive Connector 03"
+          },
+          {
+            "id": 36,
+            "type": "SAS Connector",
+            "status": "OK",
+            "status_code": "0x01 0x20 0x00 0x00",
+            "description": "Drive Connector 04"
+          },
+          {
+            "id": 37,
+            "type": "SAS Connector",
+            "status": "OK",
+            "status_code": "0x01 0x20 0x00 0x00",
+            "description": "Drive Connector 05"
+          },
+          {
+            "id": 38,
+            "type": "SAS Connector",
+            "status": "OK",
+            "status_code": "0x01 0x20 0x00 0x00",
+            "description": "Drive Connector 06"
+          },
+          {
+            "id": 39,
+            "type": "SAS Connector",
+            "status": "OK",
+            "status_code": "0x01 0x20 0x00 0x00",
+            "description": "Drive Connector 07"
+          },
+          {
+            "id": 40,
+            "type": "SAS Connector",
+            "status": "OK",
+            "status_code": "0x01 0x20 0x00 0x00",
+            "description": "Drive Connector 08"
+          },
+          {
+            "id": 41,
+            "type": "SAS Connector",
+            "status": "OK",
+            "status_code": "0x01 0x20 0x00 0x00",
+            "description": "Drive Connector 09"
+          },
+          {
+            "id": 42,
+            "type": "SAS Connector",
+            "status": "OK",
+            "status_code": "0x01 0x20 0x00 0x00",
+            "description": "Drive Connector 10"
+          },
+          {
+            "id": 43,
+            "type": "SAS Connector",
+            "status": "OK",
+            "status_code": "0x01 0x20 0x00 0x00",
+            "description": "Drive Connector 11"
+          },
+          {
+            "id": 44,
+            "type": "SAS Connector",
+            "status": "OK",
+            "status_code": "0x01 0x20 0x00 0x00",
+            "description": "Drive Connector 12"
+          },
+          {
+            "id": 45,
+            "type": "SAS Connector",
+            "status": "OK",
+            "status_code": "0x01 0x20 0x00 0x00",
+            "description": "Drive Connector 13"
+          },
+          {
+            "id": 46,
+            "type": "SAS Connector",
+            "status": "OK",
+            "status_code": "0x01 0x20 0x00 0x00",
+            "description": "Drive Connector 14"
+          },
+          {
+            "id": 47,
+            "type": "SAS Connector",
+            "status": "OK",
+            "status_code": "0x01 0x20 0x00 0x00",
+            "description": "Drive Connector 15"
+          },
+          {
+            "id": 48,
+            "type": "SAS Connector",
+            "status": "OK",
+            "status_code": "0x01 0x20 0x00 0x00",
+            "description": "Drive Connector 16"
+          },
+          {
+            "id": 49,
+            "type": "SAS Connector",
+            "status": "OK",
+            "status_code": "0x01 0x20 0x00 0x00",
+            "description": "Drive Connector 17"
+          },
+          {
+            "id": 50,
+            "type": "SAS Connector",
+            "status": "OK",
+            "status_code": "0x01 0x20 0x00 0x00",
+            "description": "Drive Connector 18"
+          },
+          {
+            "id": 51,
+            "type": "SAS Connector",
+            "status": "OK",
+            "status_code": "0x01 0x20 0x00 0x00",
+            "description": "Drive Connector 19"
+          },
+          {
+            "id": 52,
+            "type": "SAS Connector",
+            "status": "OK",
+            "status_code": "0x01 0x20 0x00 0x00",
+            "description": "Drive Connector 20"
+          },
+          {
+            "id": 53,
+            "type": "SAS Connector",
+            "status": "OK",
+            "status_code": "0x01 0x20 0x00 0x00",
+            "description": "Drive Connector 21"
+          },
+          {
+            "id": 54,
+            "type": "SAS Connector",
+            "status": "OK",
+            "status_code": "0x01 0x20 0x00 0x00",
+            "description": "Drive Connector 22"
+          },
+          {
+            "id": 55,
+            "type": "SAS Connector",
+            "status": "OK",
+            "status_code": "0x01 0x20 0x00 0x00",
+            "description": "Drive Connector 23"
+          },
+          {
+            "id": 56,
+            "type": "Enclosure",
+            "status": "Unsupported",
+            "status_code": "0x00 0x00 0x00 0x00",
+            "description": "EnclosureElementInSubEnclsr0"
+          },
+          {
+            "id": 57,
+            "type": "Enclosure",
+            "status": "OK",
+            "status_code": "0x01 0x00 0x00 0x00",
+            "description": "<invalid>"
+          },
+          {
+            "id": 58,
+            "type": "Temperature Sensor",
+            "status": "Unsupported",
+            "status_code": "0x00 0x00 0x00 0x00",
+            "description": "TempSensorsInSubEnclsr0",
+            "extra_status": {
+              "temperature": "reserved"
+            }
+          },
+          {
+            "id": 59,
+            "type": "Temperature Sensor",
+            "status": "OK",
+            "status_code": "0x01 0x00 0x31 0x00",
+            "description": "BackPlaneLM75",
+            "extra_status": {
+              "temperature": 29
+            }
+          },
+          {
+            "id": 60,
+            "type": "Temperature Sensor",
+            "status": "OK",
+            "status_code": "0x01 0x00 0x5b 0x00",
+            "description": "ChipDie",
+            "extra_status": {
+              "temperature": 71
+            }
+          },
+          {
+            "id": 61,
+            "type": "Voltage Sensor",
+            "status": "Unsupported",
+            "status_code": "0x00 0x00 0x00 0x00",
+            "description": "VoltageSensorsInSubEnclsr0",
+            "extra_status": {
+              "voltage": 0.0
+            }
+          },
+          {
+            "id": 62,
+            "type": "Voltage Sensor",
+            "status": "OK",
+            "status_code": "0x01 0x00 0x01 0xf5",
+            "description": "5V",
+            "extra_status": {
+              "voltage": 5.01
+            }
+          },
+          {
+            "id": 63,
+            "type": "Voltage Sensor",
+            "status": "OK",
+            "status_code": "0x01 0x00 0x04 0xad",
+            "description": "12V",
+            "extra_status": {
+              "voltage": 11.97
+            }
+          }
+        ]
+      },
+      {
+        "enc": "ses1",
+        "name": "LSI SAS3x28 0601",
+        "id": "500304801f48f13f",
+        "elements": [
+          {
+            "id": 0,
+            "type": "Array Device Slot",
+            "status": "Unsupported",
+            "status_code": "0x00 0x00 0x00 0x00",
+            "description": "ArrayDevicesInSubEnclsr0"
+          },
+          {
+            "id": 1,
+            "type": "Array Device Slot",
+            "status": "OK",
+            "status_code": "0x01 0x00 0x00 0x00",
+            "description": "Slot00",
+            "device_names": "da24,pass25"
+          },
+          {
+            "id": 2,
+            "type": "Array Device Slot",
+            "status": "OK",
+            "status_code": "0x01 0x00 0x00 0x00",
+            "description": "Slot01",
+            "device_names": "da25,pass26"
+          },
+          {
+            "id": 3,
+            "type": "Array Device Slot",
+            "status": "OK",
+            "status_code": "0x01 0x00 0x00 0x00",
+            "description": "Slot02",
+            "device_names": "da26,pass27"
+          },
+          {
+            "id": 4,
+            "type": "Array Device Slot",
+            "status": "OK",
+            "status_code": "0x01 0x00 0x00 0x00",
+            "description": "Slot03",
+            "device_names": "da27,pass28"
+          },
+          {
+            "id": 5,
+            "type": "Array Device Slot",
+            "status": "OK",
+            "status_code": "0x11 0x00 0x00 0x00",
+            "description": "Slot04",
+            "device_names": "da57,pass60",
+            "extra_status": {
+              "swapped": "true"
+            }
+          },
+          {
+            "id": 6,
+            "type": "Array Device Slot",
+            "status": "OK",
+            "status_code": "0x01 0x00 0x00 0x00",
+            "description": "Slot05",
+            "device_names": "da29,pass30"
+          },
+          {
+            "id": 7,
+            "type": "Array Device Slot",
+            "status": "Not Installed",
+            "status_code": "0x15 0x00 0x00 0x00",
+            "description": "Slot06",
+            "extra_status": {
+              "swapped": "true"
+            }
+          },
+          {
+            "id": 8,
+            "type": "Array Device Slot",
+            "status": "OK",
+            "status_code": "0x01 0x00 0x00 0x00",
+            "description": "Slot07",
+            "device_names": "da31,pass32"
+          },
+          {
+            "id": 9,
+            "type": "Array Device Slot",
+            "status": "OK",
+            "status_code": "0x11 0x00 0x00 0x00",
+            "description": "Slot08",
+            "device_names": "da30,pass31",
+            "extra_status": {
+              "swapped": "true"
+            }
+          },
+          {
+            "id": 10,
+            "type": "Array Device Slot",
+            "status": "OK",
+            "status_code": "0x01 0x00 0x00 0x00",
+            "description": "Slot09",
+            "device_names": "da33,pass34"
+          },
+          {
+            "id": 11,
+            "type": "Array Device Slot",
+            "status": "OK",
+            "status_code": "0x01 0x00 0x00 0x00",
+            "description": "Slot10",
+            "device_names": "da34,pass35"
+          },
+          {
+            "id": 12,
+            "type": "Array Device Slot",
+            "status": "OK",
+            "status_code": "0x01 0x00 0x00 0x00",
+            "description": "Slot11",
+            "device_names": "da35,pass36"
+          },
+          {
+            "id": 13,
+            "type": "SAS Expander",
+            "status": "Unsupported",
+            "status_code": "0x00 0x00 0x00 0x00",
+            "description": "SAS Expander"
+          },
+          {
+            "id": 14,
+            "type": "SAS Expander",
+            "status": "OK",
+            "status_code": "0x01 0x00 0x00 0x00",
+            "description": "Expander0"
+          },
+          {
+            "id": 15,
+            "type": "SAS Connector",
+            "status": "Unsupported",
+            "status_code": "0x00 0x00 0x00 0x00",
+            "description": "SAS Connectors"
+          },
+          {
+            "id": 16,
+            "type": "SAS Connector",
+            "status": "OK",
+            "status_code": "0x01 0x12 0x00 0x00",
+            "description": "ConnectorA"
+          },
+          {
+            "id": 17,
+            "type": "SAS Connector",
+            "status": "OK",
+            "status_code": "0x01 0x12 0x00 0x00",
+            "description": "ConnectorB"
+          },
+          {
+            "id": 18,
+            "type": "SAS Connector",
+            "status": "OK",
+            "status_code": "0x01 0x12 0x00 0x00",
+            "description": "ConnectorC"
+          },
+          {
+            "id": 19,
+            "type": "SAS Connector",
+            "status": "OK",
+            "status_code": "0x01 0x12 0x00 0x00",
+            "description": "ConnectorD"
+          },
+          {
+            "id": 20,
+            "type": "SAS Connector",
+            "status": "OK",
+            "status_code": "0x01 0x20 0x00 0x00",
+            "description": "Drive Connector 00"
+          },
+          {
+            "id": 21,
+            "type": "SAS Connector",
+            "status": "OK",
+            "status_code": "0x01 0x20 0x00 0x00",
+            "description": "Drive Connector 01"
+          },
+          {
+            "id": 22,
+            "type": "SAS Connector",
+            "status": "OK",
+            "status_code": "0x01 0x20 0x00 0x00",
+            "description": "Drive Connector 02"
+          },
+          {
+            "id": 23,
+            "type": "SAS Connector",
+            "status": "OK",
+            "status_code": "0x01 0x20 0x00 0x00",
+            "description": "Drive Connector 03"
+          },
+          {
+            "id": 24,
+            "type": "SAS Connector",
+            "status": "OK",
+            "status_code": "0x01 0x20 0x00 0x00",
+            "description": "Drive Connector 04"
+          },
+          {
+            "id": 25,
+            "type": "SAS Connector",
+            "status": "OK",
+            "status_code": "0x01 0x20 0x00 0x00",
+            "description": "Drive Connector 05"
+          },
+          {
+            "id": 26,
+            "type": "SAS Connector",
+            "status": "OK",
+            "status_code": "0x01 0x20 0x00 0x00",
+            "description": "Drive Connector 06"
+          },
+          {
+            "id": 27,
+            "type": "SAS Connector",
+            "status": "OK",
+            "status_code": "0x01 0x20 0x00 0x00",
+            "description": "Drive Connector 07"
+          },
+          {
+            "id": 28,
+            "type": "SAS Connector",
+            "status": "OK",
+            "status_code": "0x01 0x20 0x00 0x00",
+            "description": "Drive Connector 08"
+          },
+          {
+            "id": 29,
+            "type": "SAS Connector",
+            "status": "OK",
+            "status_code": "0x01 0x20 0x00 0x00",
+            "description": "Drive Connector 09"
+          },
+          {
+            "id": 30,
+            "type": "SAS Connector",
+            "status": "OK",
+            "status_code": "0x01 0x20 0x00 0x00",
+            "description": "Drive Connector 10"
+          },
+          {
+            "id": 31,
+            "type": "SAS Connector",
+            "status": "OK",
+            "status_code": "0x01 0x20 0x00 0x00",
+            "description": "Drive Connector 11"
+          },
+          {
+            "id": 32,
+            "type": "Enclosure",
+            "status": "Unsupported",
+            "status_code": "0x00 0x00 0x00 0x00",
+            "description": "EnclosureElementInSubEnclsr0"
+          },
+          {
+            "id": 33,
+            "type": "Enclosure",
+            "status": "OK",
+            "status_code": "0x01 0x00 0x00 0x00",
+            "description": "EnclosureElement01"
+          },
+          {
+            "id": 34,
+            "type": "Temperature Sensor",
+            "status": "Unsupported",
+            "status_code": "0x00 0x00 0x00 0x00",
+            "description": "TempSensorsInSubEnclsr0",
+            "extra_status": {
+              "temperature": "reserved"
+            }
+          },
+          {
+            "id": 35,
+            "type": "Temperature Sensor",
+            "status": "OK",
+            "status_code": "0x01 0x00 0x38 0x00",
+            "description": "BackPlaneLM75",
+            "extra_status": {
+              "temperature": 36
+            }
+          },
+          {
+            "id": 36,
+            "type": "Temperature Sensor",
+            "status": "OK",
+            "status_code": "0x01 0x00 0x5d 0x00",
+            "description": "ChipDie",
+            "extra_status": {
+              "temperature": 73
+            }
+          },
+          {
+            "id": 37,
+            "type": "Voltage Sensor",
+            "status": "Unsupported",
+            "status_code": "0x00 0x00 0x00 0x00",
+            "description": "VoltageSensorsInSubEnclsr0",
+            "extra_status": {
+              "voltage": 0.0
+            }
+          },
+          {
+            "id": 38,
+            "type": "Voltage Sensor",
+            "status": "OK",
+            "status_code": "0x01 0x00 0x01 0xf3",
+            "description": "5V",
+            "extra_status": {
+              "voltage": 4.99
+            }
+          },
+          {
+            "id": 39,
+            "type": "Voltage Sensor",
+            "status": "OK",
+            "status_code": "0x01 0x00 0x04 0xb0",
+            "description": "12V",
+            "extra_status": {
+              "voltage": 12.0
+            }
+          }
+        ]
+      },
+      {
+        "enc": "ses2",
+        "name": "SMC SC846-P 100b",
+        "id": "500304802125927f",
+        "elements": [
+          {
+            "id": 0,
+            "type": "Array Device Slot",
+            "status": "Unsupported",
+            "status_code": "0x00 0x00 0x00 0x00",
+            "description": "Array Devices"
+          },
+          {
+            "id": 1,
+            "type": "Array Device Slot",
+            "status": "OK",
+            "status_code": "0x11 0x00 0x00 0x00",
+            "description": "Slot00",
+            "device_names": "da50,pass53",
+            "extra_status": {
+              "swapped": "true"
+            }
+          },
+          {
+            "id": 2,
+            "type": "Array Device Slot",
+            "status": "OK",
+            "status_code": "0x01 0x00 0x00 0x00",
+            "description": "Slot01",
+            "device_names": "da48,pass51"
+          },
+          {
+            "id": 3,
+            "type": "Array Device Slot",
+            "status": "OK",
+            "status_code": "0x11 0x00 0x00 0x00",
+            "description": "Slot02",
+            "device_names": "da55,pass58",
+            "extra_status": {
+              "swapped": "true"
+            }
+          },
+          {
+            "id": 4,
+            "type": "Array Device Slot",
+            "status": "OK",
+            "status_code": "0x11 0x00 0x00 0x00",
+            "description": "Slot03",
+            "device_names": "da52,pass55",
+            "extra_status": {
+              "swapped": "true"
+            }
+          },
+          {
+            "id": 5,
+            "type": "Array Device Slot",
+            "status": "OK",
+            "status_code": "0x11 0x00 0x00 0x00",
+            "description": "Slot04",
+            "device_names": "da56,pass59",
+            "extra_status": {
+              "swapped": "true"
+            }
+          },
+          {
+            "id": 6,
+            "type": "Array Device Slot",
+            "status": "OK",
+            "status_code": "0x11 0x00 0x00 0x00",
+            "description": "Slot05",
+            "device_names": "da53,pass56",
+            "extra_status": {
+              "swapped": "true"
+            }
+          },
+          {
+            "id": 7,
+            "type": "Array Device Slot",
+            "status": "OK",
+            "status_code": "0x11 0x00 0x00 0x00",
+            "description": "Slot06",
+            "device_names": "da58,pass61",
+            "extra_status": {
+              "swapped": "true"
+            }
+          },
+          {
+            "id": 8,
+            "type": "Array Device Slot",
+            "status": "OK",
+            "status_code": "0x01 0x00 0x00 0x00",
+            "description": "Slot07",
+            "device_names": "da28,pass29"
+          },
+          {
+            "id": 9,
+            "type": "Array Device Slot",
+            "status": "OK",
+            "status_code": "0x01 0x00 0x00 0x00",
+            "description": "Slot08",
+            "device_names": "da32,pass33"
+          },
+          {
+            "id": 10,
+            "type": "Array Device Slot",
+            "status": "OK",
+            "status_code": "0x01 0x00 0x00 0x00",
+            "description": "Slot09",
+            "device_names": "da36,pass38"
+          },
+          {
+            "id": 11,
+            "type": "Array Device Slot",
+            "status": "OK",
+            "status_code": "0x01 0x00 0x00 0x00",
+            "description": "Slot10",
+            "device_names": "da37,pass39"
+          },
+          {
+            "id": 12,
+            "type": "Array Device Slot",
+            "status": "OK",
+            "status_code": "0x01 0x00 0x00 0x00",
+            "description": "Slot11",
+            "device_names": "da54,pass57"
+          },
+          {
+            "id": 13,
+            "type": "Array Device Slot",
+            "status": "OK",
+            "status_code": "0x01 0x00 0x00 0x00",
+            "description": "Slot12",
+            "device_names": "da40,pass43"
+          },
+          {
+            "id": 14,
+            "type": "Array Device Slot",
+            "status": "OK",
+            "status_code": "0x01 0x00 0x00 0x00",
+            "description": "Slot13",
+            "device_names": "da45,pass48"
+          },
+          {
+            "id": 15,
+            "type": "Array Device Slot",
+            "status": "OK",
+            "status_code": "0x11 0x00 0x00 0x00",
+            "description": "Slot14",
+            "device_names": "da38,pass41",
+            "extra_status": {
+              "swapped": "true"
+            }
+          },
+          {
+            "id": 16,
+            "type": "Array Device Slot",
+            "status": "OK",
+            "status_code": "0x01 0x00 0x00 0x00",
+            "description": "Slot15",
+            "device_names": "da49,pass52"
+          },
+          {
+            "id": 17,
+            "type": "Array Device Slot",
+            "status": "OK",
+            "status_code": "0x01 0x00 0x00 0x00",
+            "description": "Slot16",
+            "device_names": "da44,pass47"
+          },
+          {
+            "id": 18,
+            "type": "Array Device Slot",
+            "status": "OK",
+            "status_code": "0x11 0x00 0x00 0x00",
+            "description": "Slot17",
+            "device_names": "da41,pass44",
+            "extra_status": {
+              "swapped": "true"
+            }
+          },
+          {
+            "id": 19,
+            "type": "Array Device Slot",
+            "status": "OK",
+            "status_code": "0x01 0x00 0x00 0x00",
+            "description": "Slot18",
+            "device_names": "da47,pass50"
+          },
+          {
+            "id": 20,
+            "type": "Array Device Slot",
+            "status": "OK",
+            "status_code": "0x01 0x00 0x00 0x00",
+            "description": "Slot19",
+            "device_names": "da42,pass45"
+          },
+          {
+            "id": 21,
+            "type": "Array Device Slot",
+            "status": "OK",
+            "status_code": "0x01 0x00 0x00 0x00",
+            "description": "Slot20",
+            "device_names": "da46,pass49"
+          },
+          {
+            "id": 22,
+            "type": "Array Device Slot",
+            "status": "OK",
+            "status_code": "0x11 0x00 0x00 0x00",
+            "description": "Slot21",
+            "device_names": "da51,pass54",
+            "extra_status": {
+              "swapped": "true"
+            }
+          },
+          {
+            "id": 23,
+            "type": "Array Device Slot",
+            "status": "OK",
+            "status_code": "0x01 0x00 0x00 0x00",
+            "description": "Slot22",
+            "device_names": "da39,pass42"
+          },
+          {
+            "id": 24,
+            "type": "Array Device Slot",
+            "status": "OK",
+            "status_code": "0x01 0x00 0x00 0x00",
+            "description": "Slot23",
+            "device_names": "da43,pass46"
+          },
+          {
+            "id": 25,
+            "type": "SAS Connector",
+            "status": "Unsupported",
+            "status_code": "0x00 0x00 0x00 0x00",
+            "description": "SAS Connectors"
+          },
+          {
+            "id": 26,
+            "type": "SAS Connector",
+            "status": "OK",
+            "status_code": "0x01 0x12 0x00 0x00",
+            "description": "ConnectorA"
+          },
+          {
+            "id": 27,
+            "type": "SAS Connector",
+            "status": "OK",
+            "status_code": "0x01 0x12 0x00 0x00",
+            "description": "ConnectorB"
+          },
+          {
+            "id": 28,
+            "type": "SAS Connector",
+            "status": "OK",
+            "status_code": "0x01 0x12 0x00 0x00",
+            "description": "ConnectorC"
+          },
+          {
+            "id": 29,
+            "type": "SAS Connector",
+            "status": "OK",
+            "status_code": "0x01 0x12 0x00 0x00",
+            "description": "ConnectorD"
+          },
+          {
+            "id": 30,
+            "type": "SAS Connector",
+            "status": "OK",
+            "status_code": "0x01 0x20 0x00 0x00",
+            "description": "Drive Connector 00"
+          },
+          {
+            "id": 31,
+            "type": "SAS Connector",
+            "status": "OK",
+            "status_code": "0x01 0x20 0x00 0x00",
+            "description": "Drive Connector 01"
+          },
+          {
+            "id": 32,
+            "type": "SAS Connector",
+            "status": "OK",
+            "status_code": "0x01 0x20 0x00 0x00",
+            "description": "Drive Connector 02"
+          },
+          {
+            "id": 33,
+            "type": "SAS Connector",
+            "status": "OK",
+            "status_code": "0x01 0x20 0x00 0x00",
+            "description": "Drive Connector 03"
+          },
+          {
+            "id": 34,
+            "type": "SAS Connector",
+            "status": "OK",
+            "status_code": "0x01 0x20 0x00 0x00",
+            "description": "Drive Connector 04"
+          },
+          {
+            "id": 35,
+            "type": "SAS Connector",
+            "status": "OK",
+            "status_code": "0x01 0x20 0x00 0x00",
+            "description": "Drive Connector 05"
+          },
+          {
+            "id": 36,
+            "type": "SAS Connector",
+            "status": "OK",
+            "status_code": "0x01 0x20 0x00 0x00",
+            "description": "Drive Connector 06"
+          },
+          {
+            "id": 37,
+            "type": "SAS Connector",
+            "status": "OK",
+            "status_code": "0x01 0x20 0x00 0x00",
+            "description": "Drive Connector 07"
+          },
+          {
+            "id": 38,
+            "type": "SAS Connector",
+            "status": "OK",
+            "status_code": "0x01 0x20 0x00 0x00",
+            "description": "Drive Connector 08"
+          },
+          {
+            "id": 39,
+            "type": "SAS Connector",
+            "status": "OK",
+            "status_code": "0x01 0x20 0x00 0x00",
+            "description": "Drive Connector 09"
+          },
+          {
+            "id": 40,
+            "type": "SAS Connector",
+            "status": "OK",
+            "status_code": "0x01 0x20 0x00 0x00",
+            "description": "Drive Connector 10"
+          },
+          {
+            "id": 41,
+            "type": "SAS Connector",
+            "status": "OK",
+            "status_code": "0x01 0x20 0x00 0x00",
+            "description": "Drive Connector 11"
+          },
+          {
+            "id": 42,
+            "type": "SAS Connector",
+            "status": "OK",
+            "status_code": "0x01 0x20 0x00 0x00",
+            "description": "Drive Connector 12"
+          },
+          {
+            "id": 43,
+            "type": "SAS Connector",
+            "status": "OK",
+            "status_code": "0x01 0x20 0x00 0x00",
+            "description": "Drive Connector 13"
+          },
+          {
+            "id": 44,
+            "type": "SAS Connector",
+            "status": "OK",
+            "status_code": "0x01 0x20 0x00 0x00",
+            "description": "Drive Connector 14"
+          },
+          {
+            "id": 45,
+            "type": "SAS Connector",
+            "status": "OK",
+            "status_code": "0x01 0x20 0x00 0x00",
+            "description": "Drive Connector 15"
+          },
+          {
+            "id": 46,
+            "type": "SAS Connector",
+            "status": "OK",
+            "status_code": "0x01 0x20 0x00 0x00",
+            "description": "Drive Connector 16"
+          },
+          {
+            "id": 47,
+            "type": "SAS Connector",
+            "status": "OK",
+            "status_code": "0x01 0x20 0x00 0x00",
+            "description": "Drive Connector 17"
+          },
+          {
+            "id": 48,
+            "type": "SAS Connector",
+            "status": "OK",
+            "status_code": "0x01 0x20 0x00 0x00",
+            "description": "Drive Connector 18"
+          },
+          {
+            "id": 49,
+            "type": "SAS Connector",
+            "status": "OK",
+            "status_code": "0x01 0x20 0x00 0x00",
+            "description": "Drive Connector 19"
+          },
+          {
+            "id": 50,
+            "type": "SAS Connector",
+            "status": "OK",
+            "status_code": "0x01 0x20 0x00 0x00",
+            "description": "Drive Connector 20"
+          },
+          {
+            "id": 51,
+            "type": "SAS Connector",
+            "status": "OK",
+            "status_code": "0x01 0x20 0x00 0x00",
+            "description": "Drive Connector 21"
+          },
+          {
+            "id": 52,
+            "type": "SAS Connector",
+            "status": "OK",
+            "status_code": "0x01 0x20 0x00 0x00",
+            "description": "Drive Connector 22"
+          },
+          {
+            "id": 53,
+            "type": "SAS Connector",
+            "status": "OK",
+            "status_code": "0x01 0x20 0x00 0x00",
+            "description": "Drive Connector 23"
+          },
+          {
+            "id": 54,
+            "type": "Enclosure",
+            "status": "Unsupported",
+            "status_code": "0x00 0x00 0x00 0x00",
+            "description": "Enclosure Devices"
+          },
+          {
+            "id": 55,
+            "type": "Enclosure",
+            "status": "Unsupported",
+            "status_code": "0x00 0x00 0x00 0x00",
+            "description": "                                "
+          },
+          {
+            "id": 56,
+            "type": "SAS Expander",
+            "status": "Unsupported",
+            "status_code": "0x00 0x00 0x00 0x00",
+            "description": "SAS Expander"
+          },
+          {
+            "id": 57,
+            "type": "SAS Expander",
+            "status": "OK",
+            "status_code": "0x01 0x00 0x00 0x00",
+            "description": "FW 66.16.11.00/MFG 16.11"
+          },
+          {
+            "id": 58,
+            "type": "Temperature Sensor",
+            "status": "Unsupported",
+            "status_code": "0x00 0x00 0x00 0x00",
+            "description": "Power Supply Devices",
+            "extra_status": {
+              "temperature": "reserved"
+            }
+          },
+          {
+            "id": 59,
+            "type": "Temperature Sensor",
+            "status": "OK",
+            "status_code": "0x01 0x80 0x00 0xa0",
+            "description": "P1K03AL27SN0437",
+            "extra_status": {
+              "temperature": "reserved"
+            }
+          },
+          {
+            "id": 60,
+            "type": "Temperature Sensor",
+            "status": "OK",
+            "status_code": "0x01 0x80 0x00 0xa0",
+            "description": "P1K03AL27SN0436",
+            "extra_status": {
+              "temperature": "reserved"
+            }
+          },
+          {
+            "id": 61,
+            "type": "Voltage Sensor",
+            "status": "Unsupported",
+            "status_code": "0x00 0x00 0x00 0x00",
+            "description": "Cooling Devices",
+            "extra_status": {
+              "voltage": 0.0
+            }
+          },
+          {
+            "id": 62,
+            "type": "Voltage Sensor",
+            "status": "OK",
+            "status_code": "0x01 0x01 0x86 0x07",
+            "description": "FAN01",
+            "extra_status": {
+              "voltage": 343.11
+            }
+          },
+          {
+            "id": 63,
+            "type": "Voltage Sensor",
+            "status": "OK",
+            "status_code": "0x01 0x01 0x7c 0x07",
+            "description": "FAN02",
+            "extra_status": {
+              "voltage": 317.51
+            }
+          }
+        ]
+      },
+      {
+        "enc": "ses3",
+        "name": "AHCI SGPIO Enclosure 2.00",
+        "id": "3061686369656d30",
+        "elements": [
+          {
+            "id": 0,
+            "type": "Array Device Slot",
+            "status": "Unsupported",
+            "status_code": "0x00 0x00 0x00 0x00",
+            "description": "Drive Slots"
+          },
+          {
+            "id": 1,
+            "type": "Array Device Slot",
+            "status": "Not Installed",
+            "status_code": "0x05 0x00 0x00 0x00",
+            "description": "Slot 00"
+          },
+          {
+            "id": 2,
+            "type": "Array Device Slot",
+            "status": "Not Installed",
+            "status_code": "0x05 0x00 0x00 0x00",
+            "description": "Slot 01"
+          },
+          {
+            "id": 3,
+            "type": "Array Device Slot",
+            "status": "Not Installed",
+            "status_code": "0x05 0x00 0x00 0x00",
+            "description": "Slot 02"
+          },
+          {
+            "id": 4,
+            "type": "Array Device Slot",
+            "status": "Not Installed",
+            "status_code": "0x05 0x00 0x00 0x00",
+            "description": "Slot 03"
+          }
+        ]
+      },
+      {
+        "enc": "ses4",
+        "name": "AHCI SGPIO Enclosure 2.00",
+        "id": "3061686369656d31",
+        "elements": [
+          {
+            "id": 0,
+            "type": "Array Device Slot",
+            "status": "Unsupported",
+            "status_code": "0x00 0x00 0x00 0x00",
+            "description": "Drive Slots"
+          },
+          {
+            "id": 1,
+            "type": "Array Device Slot",
+            "status": "OK",
+            "status_code": "0x01 0x00 0x00 0x00",
+            "description": "Slot 00",
+            "device_names": "pass64,ada0"
+          },
+          {
+            "id": 2,
+            "type": "Array Device Slot",
+            "status": "OK",
+            "status_code": "0x01 0x00 0x00 0x00",
+            "description": "Slot 01",
+            "device_names": "pass65,ada1"
+          },
+          {
+            "id": 3,
+            "type": "Array Device Slot",
+            "status": "Not Installed",
+            "status_code": "0x05 0x00 0x00 0x00",
+            "description": "Slot 02"
+          },
+          {
+            "id": 4,
+            "type": "Array Device Slot",
+            "status": "Not Installed",
+            "status_code": "0x05 0x00 0x00 0x00",
+            "description": "Slot 03"
+          },
+          {
+            "id": 5,
+            "type": "Array Device Slot",
+            "status": "Not Installed",
+            "status_code": "0x05 0x00 0x00 0x00",
+            "description": "Slot 04"
+          },
+          {
+            "id": 6,
+            "type": "Array Device Slot",
+            "status": "Not Installed",
+            "status_code": "0x05 0x00 0x00 0x00",
+            "description": "Slot 05"
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,755 @@
+{
+  "__version": "1",
+  "sesutil": {
+    "enclosures": [
+      {
+        "enc": "ses0",
+        "name": "SMC SC846P 0c1f",
+        "id": "50030480186d133f",
+        "elements": [
+          {
+            "type": "device_slot",
+            "description": "Slot00  ",
+            "device_names": "da0",
+            "model": "HGST HUH728080AL5200",
+            "serial": "HYVSV17V",
+            "size": 8001563222016,
+            "status": "OK"
+          },
+          {
+            "type": "device_slot",
+            "description": "Slot01  ",
+            "device_names": "da1",
+            "model": "HGST HUH728080AL5200",
+            "serial": "UCAXS05E",
+            "size": 8001563222016,
+            "status": "OK"
+          },
+          {
+            "type": "device_slot",
+            "description": "Slot02  ",
+            "device_names": "da2",
+            "model": "HGST HUH728080AL5200",
+            "serial": "VRNYUGPT",
+            "size": 8001563222016,
+            "status": "OK"
+          },
+          {
+            "type": "device_slot",
+            "description": "Slot03  ",
+            "device_names": "da3",
+            "model": "HGST HUH728080AL5200",
+            "serial": "BFJL6FLH",
+            "size": 8001563222016,
+            "status": "OK"
+          },
+          {
+            "type": "device_slot",
+            "description": "Slot04  ",
+            "device_names": "da4",
+            "model": "HGST HUH728080AL5200",
+            "serial": "SGJBZ59X",
+            "size": 8001563222016,
+            "status": "OK"
+          },
+          {
+            "type": "device_slot",
+            "description": "Slot05  ",
+            "device_names": "da5",
+            "model": "HGST HUH728080AL5200",
+            "serial": "CUZPUY1L",
+            "size": 8001563222016,
+            "status": "OK"
+          },
+          {
+            "type": "device_slot",
+            "description": "Slot06  ",
+            "device_names": "da6",
+            "model": "HGST HUH728080AL5200",
+            "serial": "SSCSK5AY",
+            "size": 8001563222016,
+            "status": "OK"
+          },
+          {
+            "type": "device_slot",
+            "description": "Slot07  ",
+            "device_names": "da7",
+            "model": "HGST HUH728080AL5200",
+            "serial": "MVHJ0A6B",
+            "size": 8001563222016,
+            "status": "OK"
+          },
+          {
+            "type": "device_slot",
+            "description": "Slot08  ",
+            "device_names": "da8",
+            "model": "HGST HUH728080AL5200",
+            "serial": "NKCJQRGJ",
+            "size": 8001563222016,
+            "status": "OK"
+          },
+          {
+            "type": "device_slot",
+            "description": "Slot09  ",
+            "device_names": "da9",
+            "model": "HGST HUH728080AL5200",
+            "serial": "HHUVB81M",
+            "size": 8001563222016,
+            "status": "OK"
+          },
+          {
+            "type": "device_slot",
+            "description": "Slot10  ",
+            "device_names": "da10",
+            "model": "HGST HUH728080AL5200",
+            "serial": "NWZX26ZW",
+            "size": 8001563222016,
+            "status": "OK"
+          },
+          {
+            "type": "device_slot",
+            "description": "Slot11  ",
+            "device_names": "da11",
+            "model": "HGST HUH728080AL5200",
+            "serial": "WZYTXGGW",
+            "size": 8001563222016,
+            "status": "OK"
+          },
+          {
+            "type": "device_slot",
+            "description": "Slot12  ",
+            "device_names": "da12",
+            "model": "HGST HUH728080AL5200",
+            "serial": "KGULDH7J",
+            "size": 8001563222016,
+            "status": "OK"
+          },
+          {
+            "type": "device_slot",
+            "description": "Slot13  ",
+            "device_names": "da13",
+            "model": "HGST HUH728080AL5200",
+            "serial": "TMCQ1B1A",
+            "size": 8001563222016,
+            "status": "OK"
+          },
+          {
+            "type": "device_slot",
+            "description": "Slot14  ",
+            "device_names": "da14",
+            "model": "HGST HUH728080AL5200",
+            "serial": "UKHRXK6X",
+            "size": 8001563222016,
+            "status": "OK"
+          },
+          {
+            "type": "device_slot",
+            "description": "Slot15  ",
+            "device_names": "da15",
+            "model": "SEAGATE ST8000NM020B",
+            "serial": "MXEFJQWF0489V257G6JQ",
+            "size": 8001563222016,
+            "status": "OK",
+            "extra_status": {
+              "swapped": "true"
+            }
+          },
+          {
+            "type": "device_slot",
+            "description": "Slot16  ",
+            "device_names": "da16",
+            "model": "HGST HUH728080AL5200",
+            "serial": "TLZLATBP",
+            "size": 8001563222016,
+            "status": "OK",
+            "extra_status": {
+              "swapped": "true"
+            }
+          },
+          {
+            "type": "device_slot",
+            "description": "Slot17  ",
+            "device_names": "da17",
+            "model": "HGST HUH728080AL5200",
+            "serial": "ZDFJGT4N",
+            "size": 8001563222016,
+            "status": "OK"
+          },
+          {
+            "type": "device_slot",
+            "description": "Slot18  ",
+            "device_names": "da18",
+            "model": "HGST HUH728080AL5200",
+            "serial": "J2T5ZVJB",
+            "size": 8001563222016,
+            "status": "OK"
+          },
+          {
+            "type": "device_slot",
+            "description": "Slot19  ",
+            "device_names": "da19",
+            "model": "HGST HUH728080AL5200",
+            "serial": "N7R6KEPU",
+            "size": 8001563222016,
+            "status": "OK"
+          },
+          {
+            "type": "device_slot",
+            "description": "Slot20  ",
+            "device_names": "da20",
+            "model": "HGST HUH728080AL5200",
+            "serial": "AFLFC3UQ",
+            "size": 8001563222016,
+            "status": "OK"
+          },
+          {
+            "type": "device_slot",
+            "description": "Slot21  ",
+            "device_names": "da21",
+            "model": "HGST HUH728080AL5200",
+            "serial": "VHK395XP",
+            "size": 8001563222016,
+            "status": "OK"
+          },
+          {
+            "type": "device_slot",
+            "description": "Slot22  ",
+            "device_names": "da22",
+            "model": "HGST HUH728080AL5200",
+            "serial": "AYUA15LP",
+            "size": 8001563222016,
+            "status": "OK"
+          },
+          {
+            "type": "device_slot",
+            "description": "Slot23  ",
+            "device_names": "da23",
+            "model": "HGST HUH728080AL5200",
+            "serial": "KNCXXC5U",
+            "size": 8001563222016,
+            "status": "OK"
+          },
+          {
+            "type": "temperature_sensor",
+            "description": "BackPlaneLM75",
+            "temperature": 29
+          },
+          {
+            "type": "temperature_sensor",
+            "description": "ChipDie",
+            "temperature": 71
+          },
+          {
+            "type": "voltage_sensor",
+            "description": "5V",
+            "voltage": 5.01
+          },
+          {
+            "type": "voltage_sensor",
+            "description": "12V",
+            "voltage": 11.97
+          }
+        ]
+      },
+      {
+        "enc": "ses1",
+        "name": "LSI SAS3x28 0601",
+        "id": "500304801f48f13f",
+        "elements": [
+          {
+            "type": "device_slot",
+            "description": "Slot00  ",
+            "device_names": "da24",
+            "model": "HGST HUH721008AL5200",
+            "serial": "CYL8RZRD",
+            "size": 8001563222016,
+            "status": "OK"
+          },
+          {
+            "type": "device_slot",
+            "description": "Slot01  ",
+            "device_names": "da25",
+            "model": "HGST HUH721008AL5200",
+            "serial": "SME82X6N",
+            "size": 8001563222016,
+            "status": "OK"
+          },
+          {
+            "type": "device_slot",
+            "description": "Slot02  ",
+            "device_names": "da26",
+            "model": "HGST HUH721008AL5200",
+            "serial": "VKRSN45H",
+            "size": 8001563222016,
+            "status": "OK"
+          },
+          {
+            "type": "device_slot",
+            "description": "Slot03  ",
+            "device_names": "da27",
+            "model": "HGST HUH721008AL5200",
+            "serial": "PGS75J4U",
+            "size": 8001563222016,
+            "status": "OK"
+          },
+          {
+            "type": "device_slot",
+            "description": "Slot04  ",
+            "device_names": "da57",
+            "model": "SEAGATE ST8000NM020B",
+            "serial": "TMKTXFDQ0164R339BPZL",
+            "size": 8001563222016,
+            "status": "OK",
+            "extra_status": {
+              "swapped": "true"
+            }
+          },
+          {
+            "type": "device_slot",
+            "description": "Slot05  ",
+            "device_names": "da29",
+            "model": "HGST HUH721008AL5200",
+            "serial": "KUV1MGDP",
+            "size": 8001563222016,
+            "status": "OK"
+          },
+          {
+            "type": "device_slot",
+            "description": "Slot06  ",
+            "device_names": "",
+            "model": "",
+            "serial": "",
+            "status": "Not Installed",
+            "extra_status": {
+              "swapped": "true"
+            }
+          },
+          {
+            "type": "device_slot",
+            "description": "Slot07  ",
+            "device_names": "da31",
+            "model": "HGST HUH721008AL5200",
+            "serial": "GMTQMN6P",
+            "size": 8001563222016,
+            "status": "OK"
+          },
+          {
+            "type": "device_slot",
+            "description": "Slot08  ",
+            "device_names": "da30",
+            "model": "HGST HUH721008AL5200",
+            "serial": "VPUN999Y",
+            "size": 8001563222016,
+            "status": "OK",
+            "extra_status": {
+              "swapped": "true"
+            }
+          },
+          {
+            "type": "device_slot",
+            "description": "Slot09  ",
+            "device_names": "da33",
+            "model": "HGST HUH721008AL5200",
+            "serial": "FGH6UV3S",
+            "size": 8001563222016,
+            "status": "OK"
+          },
+          {
+            "type": "device_slot",
+            "description": "Slot10  ",
+            "device_names": "da34",
+            "model": "HGST HUH721008AL5200",
+            "serial": "FGD8Z0JR",
+            "size": 8001563222016,
+            "status": "OK"
+          },
+          {
+            "type": "device_slot",
+            "description": "Slot11  ",
+            "device_names": "da35",
+            "model": "HGST HUH721008AL5200",
+            "serial": "LQF130NE",
+            "size": 8001563222016,
+            "status": "OK"
+          },
+          {
+            "type": "temperature_sensor",
+            "description": "BackPlaneLM75",
+            "temperature": 36
+          },
+          {
+            "type": "temperature_sensor",
+            "description": "ChipDie",
+            "temperature": 73
+          },
+          {
+            "type": "voltage_sensor",
+            "description": "5V",
+            "voltage": 4.99
+          },
+          {
+            "type": "voltage_sensor",
+            "description": "12V",
+            "voltage": 12.0
+          }
+        ]
+      },
+      {
+        "enc": "ses2",
+        "name": "SMC SC846-P 100b",
+        "id": "500304802125927f",
+        "elements": [
+          {
+            "type": "device_slot",
+            "description": "Slot00  ",
+            "device_names": "da50",
+            "model": "WDC WUH721816AL5204",
+            "serial": "4CB5QAQF",
+            "size": 16000900661248,
+            "status": "OK",
+            "extra_status": {
+              "swapped": "true"
+            }
+          },
+          {
+            "type": "device_slot",
+            "description": "Slot01  ",
+            "device_names": "da48",
+            "model": "WDC WUH721816AL5204",
+            "serial": "7NU81ERJ",
+            "size": 16000900661248,
+            "status": "OK"
+          },
+          {
+            "type": "device_slot",
+            "description": "Slot02  ",
+            "device_names": "da55",
+            "model": "WDC WUH721816AL5204",
+            "serial": "1ZD8V3DR",
+            "size": 16000900661248,
+            "status": "OK",
+            "extra_status": {
+              "swapped": "true"
+            }
+          },
+          {
+            "type": "device_slot",
+            "description": "Slot03  ",
+            "device_names": "da52",
+            "model": "WDC WUH721816AL5204",
+            "serial": "1RX6MWXZ",
+            "size": 16000900661248,
+            "status": "OK",
+            "extra_status": {
+              "swapped": "true"
+            }
+          },
+          {
+            "type": "device_slot",
+            "description": "Slot04  ",
+            "device_names": "da56",
+            "model": "WDC WUH721816AL5204",
+            "serial": "8GK9NNZU",
+            "size": 16000900661248,
+            "status": "OK",
+            "extra_status": {
+              "swapped": "true"
+            }
+          },
+          {
+            "type": "device_slot",
+            "description": "Slot05  ",
+            "device_names": "da53",
+            "model": "WDC WUH721816AL5204",
+            "serial": "0SX228UC",
+            "size": 16000900661248,
+            "status": "OK",
+            "extra_status": {
+              "swapped": "true"
+            }
+          },
+          {
+            "type": "device_slot",
+            "description": "Slot06  ",
+            "device_names": "da58",
+            "model": "SEAGATE ST16000NM007H",
+            "serial": "TL42G0L0",
+            "size": 16000900661248,
+            "status": "OK",
+            "extra_status": {
+              "swapped": "true"
+            }
+          },
+          {
+            "type": "device_slot",
+            "description": "Slot07  ",
+            "device_names": "da28",
+            "model": "WDC WUH721816AL5204",
+            "serial": "7AH121PD",
+            "size": 16000900661248,
+            "status": "OK"
+          },
+          {
+            "type": "device_slot",
+            "description": "Slot08  ",
+            "device_names": "da32",
+            "model": "WDC WUH721816AL5204",
+            "serial": "1KX72XKK",
+            "size": 16000900661248,
+            "status": "OK"
+          },
+          {
+            "type": "device_slot",
+            "description": "Slot09  ",
+            "device_names": "da36",
+            "model": "WDC WUH721816AL5204",
+            "serial": "7XK2PYBY",
+            "size": 16000900661248,
+            "status": "OK"
+          },
+          {
+            "type": "device_slot",
+            "description": "Slot10  ",
+            "device_names": "da37",
+            "model": "WDC WUH721816AL5204",
+            "serial": "3GK09LGK",
+            "size": 16000900661248,
+            "status": "OK"
+          },
+          {
+            "type": "device_slot",
+            "description": "Slot11  ",
+            "device_names": "da54",
+            "model": "WDC WUH721816AL5204",
+            "serial": "2HM60KBQ",
+            "size": 16000900661248,
+            "status": "OK"
+          },
+          {
+            "type": "device_slot",
+            "description": "Slot12  ",
+            "device_names": "da40",
+            "model": "WDC WUH721816AL5204",
+            "serial": "6LA1SV9B",
+            "size": 16000900661248,
+            "status": "OK"
+          },
+          {
+            "type": "device_slot",
+            "description": "Slot13  ",
+            "device_names": "da45",
+            "model": "WDC WUH721816AL5204",
+            "serial": "4RR63NHT",
+            "size": 16000900661248,
+            "status": "OK"
+          },
+          {
+            "type": "device_slot",
+            "description": "Slot14  ",
+            "device_names": "da38",
+            "model": "WDC WUH721816AL5204",
+            "serial": "4ZY83R4T",
+            "size": 16000900661248,
+            "status": "OK",
+            "extra_status": {
+              "swapped": "true"
+            }
+          },
+          {
+            "type": "device_slot",
+            "description": "Slot15  ",
+            "device_names": "da49",
+            "model": "WDC WUH721816AL5204",
+            "serial": "0HW5YKWN",
+            "size": 16000900661248,
+            "status": "OK"
+          },
+          {
+            "type": "device_slot",
+            "description": "Slot16  ",
+            "device_names": "da44",
+            "model": "WDC WUH721816AL5204",
+            "serial": "0QA796NV",
+            "size": 16000900661248,
+            "status": "OK"
+          },
+          {
+            "type": "device_slot",
+            "description": "Slot17  ",
+            "device_names": "da41",
+            "model": "WDC WUH721816AL5204",
+            "serial": "4GA3XZYV",
+            "size": 16000900661248,
+            "status": "OK",
+            "extra_status": {
+              "swapped": "true"
+            }
+          },
+          {
+            "type": "device_slot",
+            "description": "Slot18  ",
+            "device_names": "da47",
+            "model": "WDC WUH721816AL5204",
+            "serial": "3XVG6PWM",
+            "size": 16000900661248,
+            "status": "OK"
+          },
+          {
+            "type": "device_slot",
+            "description": "Slot19  ",
+            "device_names": "da42",
+            "model": "WDC WUH721816AL5204",
+            "serial": "5MT7K0HP",
+            "size": 16000900661248,
+            "status": "OK"
+          },
+          {
+            "type": "device_slot",
+            "description": "Slot20  ",
+            "device_names": "da46",
+            "model": "WDC WUH721816AL5204",
+            "serial": "4QK2W3BV",
+            "size": 16000900661248,
+            "status": "OK"
+          },
+          {
+            "type": "device_slot",
+            "description": "Slot21  ",
+            "device_names": "da51",
+            "model": "WDC WUH721816AL5204",
+            "serial": "6SC9597W",
+            "size": 16000900661248,
+            "status": "OK",
+            "extra_status": {
+              "swapped": "true"
+            }
+          },
+          {
+            "type": "device_slot",
+            "description": "Slot22  ",
+            "device_names": "da39",
+            "model": "WDC WUH721816AL5204",
+            "serial": "1GY3CQ2U",
+            "size": 16000900661248,
+            "status": "OK"
+          },
+          {
+            "type": "device_slot",
+            "description": "Slot23  ",
+            "device_names": "da43",
+            "model": "WDC WUH721816AL5204",
+            "serial": "8QZ185YQ",
+            "size": 16000900661248,
+            "status": "OK"
+          },
+          {
+            "type": "voltage_sensor",
+            "description": "FAN01",
+            "voltage": 343.11
+          },
+          {
+            "type": "voltage_sensor",
+            "description": "FAN02",
+            "voltage": 317.51
+          }
+        ]
+      },
+      {
+        "enc": "ses3",
+        "name": "AHCI SGPIO Enclosure 2.00",
+        "id": "3061686369656d30",
+        "elements": [
+          {
+            "type": "device_slot",
+            "description": "Slot 00 ",
+            "device_names": "",
+            "model": "",
+            "serial": "",
+            "status": "Not Installed"
+          },
+          {
+            "type": "device_slot",
+            "description": "Slot 01 ",
+            "device_names": "",
+            "model": "",
+            "serial": "",
+            "status": "Not Installed"
+          },
+          {
+            "type": "device_slot",
+            "description": "Slot 02 ",
+            "device_names": "",
+            "model": "",
+            "serial": "",
+            "status": "Not Installed"
+          },
+          {
+            "type": "device_slot",
+            "description": "Slot 03 ",
+            "device_names": "",
+            "model": "",
+            "serial": "",
+            "status": "Not Installed"
+          }
+        ]
+      },
+      {
+        "enc": "ses4",
+        "name": "AHCI SGPIO Enclosure 2.00",
+        "id": "3061686369656d31",
+        "elements": [
+          {
+            "type": "device_slot",
+            "description": "Slot 00 ",
+            "device_names": "ada0",
+            "model": "Micron 1100 MTFDDAK256TBN",
+            "serial": "694270P9E65S",
+            "size": 256060514304,
+            "status": "OK"
+          },
+          {
+            "type": "device_slot",
+            "description": "Slot 01 ",
+            "device_names": "ada1",
+            "model": "Micron 1100 MTFDDAK256TBN",
+            "serial": "885489E5A670",
+            "size": 256060514304,
+            "status": "OK"
+          },
+          {
+            "type": "device_slot",
+            "description": "Slot 02 ",
+            "device_names": "",
+            "model": "",
+            "serial": "",
+            "status": "Not Installed"
+          },
+          {
+            "type": "device_slot",
+            "description": "Slot 03 ",
+            "device_names": "",
+            "model": "",
+            "serial": "",
+            "status": "Not Installed"
+          },
+          {
+            "type": "device_slot",
+            "description": "Slot 04 ",
+            "device_names": "",
+            "model": "",
+            "serial": "",
+            "status": "Not Installed"
+          },
+          {
+            "type": "device_slot",
+            "description": "Slot 05 ",
+            "device_names": "",
+            "model": "",
+            "serial": "",
+            "status": "Not Installed"
+          }
+        ]
+      }
+    ]
+  }
+}

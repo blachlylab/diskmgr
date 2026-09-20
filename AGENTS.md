@@ -26,8 +26,10 @@ The crate is currently a stub. Implement against the spec, not against
 4. **Silk-screen slot ≠ SES element id.** Store both. The grid shows silk-screen
    numbers from config; LED/sesutil calls will use SES ids.
 5. **Probes are swappable.** UI must run on macOS (this workspace) via
-   `FixtureProbe`. Do not call `sesutil` unless the OS is FreeBSD (or the user
-   asked to implement that backend).
+   `FixtureProbe` replaying [`examples/sesutil/`](examples/sesutil/). Parse
+   that JSON with the same code as live `sesutil --libxo json`. Do not call
+   `sesutil` unless the OS is FreeBSD (or the user asked to implement that
+   backend). Parser contract: [`docs/PRODUCT.md`](docs/PRODUCT.md) §9.5.
 6. **ESC is a back stack**, not a universal quit. Quit only from the main menu.
 7. **No extra product surface:** no daemon, no DB, no second TUI library, no
    web framework.
@@ -58,8 +60,10 @@ example.
 ## Testing
 
 - Unit test `silk_screen ↔ (row, col)` with no hardware.
-- Fixture JSON/TOML covering: empty slot, occupied slot, locate on, fault on,
-  disk in a raidz vdev, disk that is a spare, disk with a GPT label.
+- Parse `examples/sesutil/{map,show,status}.json` in unit tests (empty bay,
+  shuffled `da` vs slot, swapped bit, `ada` vs `da`, mixed status types).
+- LED on/off needs a separate tiny overlay; the lab dump has no locate/fault.
+- ZFS/GPT fixtures join on serial from `show.json`, not on `daN`.
 - Do not require root or FreeBSD to `cargo test`.
 
 ## Style

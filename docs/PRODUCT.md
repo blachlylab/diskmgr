@@ -430,7 +430,7 @@ Abstract behind a `Probe` trait (name flexible):
 Implementations:
 
 - `FreebsdProbe` — real commands
-- `FixtureProbe` — JSON/TOML fixtures for macOS development and tests
+- `FixtureProbe` — replay recorded `sesutil` JSON (same parser as live)
 - Later: `LinuxProbe`
 
 The TUI must run on a machine with **no SES devices** using fixtures, so the
@@ -443,9 +443,83 @@ optional; if added, it must not block the UI thread.
 
 ### 9.4 Mock / fixture data
 
-Ship at least one fixture that looks like a SuperMicro 24-bay front plane
-(`origin=BL`, `fill=column`, mix of empty slots, one locate LED, one disk in
-a raidz vdev, one spare). Tests for layout math and rendering should use it.
+The Mac virtual enclosure **is** a directory of captured libxo JSON:
+
+```
+examples/sesutil/map.json
+examples/sesutil/show.json
+examples/sesutil/status.json
+```
+
+`--fixture examples/sesutil` feeds those files through the same SES parser
+as `sesutil … --libxo json` on FreeBSD. Do not invent a second slot schema.
+
+This capture has occupancy, swapped bits, empty bays, shuffled `da` names,
+and **scrambled** serials (same length/charset, unique, not the lab values).
+It does **not** have locate/fault LEDs on. Add a small overlay or a second
+capture for LED rendering tests; do not fake LEDs by editing the lab dump
+in place without labeling it.
+
+ZFS/GPT/mount data is still a separate fixture layer, joined on serial.
+
+### 9.5 Lab SES capture (parser contract)
+
+Recorded 2026-09-20 from the lab storage host. Treat these as parser tests,
+not as silk-screen layout (layout still comes from TOML).
+
+**Enclosures**
+
+| `enc` | `name` | `id` | Disk bays | Notes |
+|-------|--------|------|-----------|--------|
+| ses0 | SMC SC846P 0c1f | `50030480186d133f` | 24 (Slot00–23) | `daN` matches slot index in this dump only |
+| ses1 | LSI SAS3x28 0601 | `500304801f48f13f` | 12 | Slot06 empty; Slot04=`da57`; Slot08=`da30` |
+| ses2 | SMC SC846-P 100b | `500304802125927f` | 24 | `da` vs slot fully shuffled; status INFO+CRITICAL |
+| ses3 | AHCI SGPIO Enclosure 2.00 | `3061686369656d30` | 4 empty | motherboard |
+| ses4 | AHCI SGPIO Enclosure 2.00 | `3061686369656d31` | 6 (ada0, ada1) | boot SSDs |
+
+Join config to live/fixture SES by **enclosure `id`**, not `sesN`.
+
+**Map JSON (`sesutil map`)**
+
+- Envelope: `{ "__version": "1", "sesutil": { "enclosures": [ … ] } }`
+- Bay elements: `type == "Array Device Slot"` **and** `description` matches
+  `SlotNN` or `Slot NN`. Skip header rows (`ArrayDevicesInSubEnclsr0`,
+  `Array Devices`, `Drive Slots`) even though they share the same type.
+- Skip expanders, SAS connectors, enclosure objects, temp, voltage on the
+  disk map.
+- `device_names` is a comma-separated string (`da0,pass0` or `pass64,ada0`).
+  Prefer `daN` / `adaN`; ignore `passN`.
+- `extra_status.swapped` is the **string** `"true"`, not a JSON boolean.
+- Locate/fault LEDs were not present in this capture; parser must tolerate
+  missing `extra_status`.
+- `id` on map elements is the SES element index (slot 0 silk-screen is
+  typically element 1).
+
+**Show JSON (`sesutil show`)**
+
+- No element `id`. Join to map on `(enclosure id, normalized description)`.
+- Descriptions are padded (`"Slot00  "`, `"Slot 00 "`). Strip whitespace;
+  accept both `Slot00` and `Slot 00`.
+- Occupied slots: `model`, `serial`, `size` (bytes as JSON number — use
+  `u64`; 16 TB is `16000900661248`).
+- Empty slots: `status: "Not Installed"` with empty strings for names.
+- No separate manufacturer field; vendor is a prefix of `model` (`HGST`,
+  `SEAGATE`, `WDC`, `Micron`).
+- `show` types are `device_slot`, `temperature_sensor`, `voltage_sensor`
+  (underscore), unlike map’s title-case type strings.
+
+**Status JSON (`sesutil status`)**
+
+- `status` is **either** a string (`"OK"`) **or** an array of strings
+  (`["INFO"]`, `["INFO","CRITICAL"]`). Serde must accept both.
+
+**Do not trust SES type names for non-disk sensors.** On ses2, fans appear
+as `voltage_sensor` named `FAN01` with `voltage: 343.11` (RPM). Disk-map
+code should ignore them; if we later show enclosure health, parse by
+description as well as type.
+
+**`da` is not location.** Counterexamples in this dump: ses1 Slot04=`da57`,
+ses2 Slot00=`da50`, ses2 Slot07=`da28`. ses0 looking “clean” is a trap.
 
 ---
 
@@ -455,7 +529,7 @@ v1:
 
 ```
 diskmgr [--config PATH]
-diskmgr --fixture PATH          # force FixtureProbe (dev/test)
+diskmgr --fixture DIR           # replay DIR/{map,show,status}.json
 ```
 
 Deferred:
@@ -510,6 +584,7 @@ src/
     status.rs
 examples/
   diskmgr.toml
+  sesutil/          # recorded map.json, show.json, status.json
 ```
 
 `layout.rs` must be unit-tested with no hardware: origin/fill/base permutations.

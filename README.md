@@ -48,7 +48,8 @@ trait.
 
 ```
 cargo test
-cargo run -- --config examples/diskmgr.toml --fixture examples/fixture.json
+cargo run -- --config examples/diskmgr.toml --fixture examples/sesutil
 ```
 
-(`--fixture` is specified; not implemented yet.)
+That prints a slot listing (not the TUI yet). Captured `sesutil` JSON lives
+in `examples/sesutil/`.
