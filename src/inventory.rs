@@ -1,7 +1,7 @@
 use crate::config::{Config, EnclosureConfig};
 use crate::error::Result;
 use crate::layout::Cell;
-use crate::probe::{FixtureProbe, GptPartition, SesBay, SesEnclosure};
+use crate::probe::{FixtureProbe, GptPartition, SesBay, SesEnclosure, ZfsUsage};
 
 /// Config geometry joined with live/fixture SES occupancy.
 #[derive(Clone, Debug)]
@@ -9,6 +9,7 @@ pub struct Inventory {
     pub host_name: Option<String>,
     pub enclosures: Vec<MappedEnclosure>,
     pub geom_probed: bool,
+    pub zfs_probed: bool,
 }
 
 #[derive(Clone, Debug)]
@@ -58,6 +59,7 @@ impl Inventory {
             host_name: config.host.name.clone(),
             enclosures,
             geom_probed: probe.geom_probed,
+            zfs_probed: probe.zfs_probed,
         })
     }
 }
@@ -126,5 +128,21 @@ impl MappedSlot {
         } else {
             Some("no".into())
         }
+    }
+
+    pub fn zfs(&self) -> &[ZfsUsage] {
+        self.bay.as_ref().map(|b| b.zfs.as_slice()).unwrap_or(&[])
+    }
+
+    pub fn zfs_pool(&self) -> Option<&str> {
+        self.zfs().first().map(|z| z.pool.as_str())
+    }
+
+    pub fn zfs_vdev(&self) -> Option<&str> {
+        self.zfs().first().map(|z| z.vdev.as_str())
+    }
+
+    pub fn zfs_role(&self) -> Option<&str> {
+        self.zfs().first().map(|z| z.role.as_str())
     }
 }

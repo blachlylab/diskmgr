@@ -35,6 +35,7 @@ pub fn draw(frame: &mut Frame, app: &App, area: Rect) {
             enc,
             app.focused_slot(),
             app.inventory.geom_probed,
+            app.inventory.zfs_probed,
         );
     } else {
         frame.render_widget(
@@ -231,6 +232,7 @@ fn draw_status(
     enc: &MappedEnclosure,
     slot: Option<&MappedSlot>,
     geom_probed: bool,
+    zfs_probed: bool,
 ) {
     let Some(slot) = slot else {
         frame.render_widget(Block::bordered().title(" Slot "), area);
@@ -310,7 +312,7 @@ fn draw_status(
     lines.push(section("Usage"));
     lines.extend(gpt_lines(geom_probed, slot));
     lines.push(kv("mounted", "unavailable (not probed)"));
-    lines.push(kv("ZFS", "unavailable (not probed)"));
+    lines.extend(zfs_lines(zfs_probed, slot));
 
     frame.render_widget(
         Paragraph::new(lines)
@@ -367,6 +369,44 @@ fn gpt_lines(geom_probed: bool, slot: &MappedSlot) -> Vec<Line<'static>> {
     } else {
         vec![kv("GPT", "no")]
     }
+}
+
+fn zfs_lines(zfs_probed: bool, slot: &MappedSlot) -> Vec<Line<'static>> {
+    if !zfs_probed {
+        return vec![kv("ZFS", "unavailable (not probed)")];
+    }
+    let usages = slot.zfs();
+    if usages.is_empty() {
+        return vec![kv("ZFS", "not a ZFS member")];
+    }
+    let mut lines = Vec::new();
+    for (i, z) in usages.iter().enumerate() {
+        if i == 0 {
+            lines.push(kv("ZFS", &z.pool));
+        } else {
+            lines.push(kv("ZFS", &format!("also {}", z.pool)));
+        }
+        lines.push(kv("  vdev", &format!("{}  ({})", z.vdev, z.role)));
+        let mut path = z.path.clone();
+        if z.path_is_unstable() {
+            path.push_str("  (unstable)");
+        }
+        lines.push(kv("  path", &path));
+        lines.push(kv("  state", &z.state));
+        if z.has_errors() {
+            lines.push(Line::from(vec![
+                key_span("  errors"),
+                Span::styled(
+                    format!(
+                        "READ {}  WRITE {}  CKSUM {}",
+                        z.read_err, z.write_err, z.cksum_err
+                    ),
+                    crate::ui::fault_style(),
+                ),
+            ]));
+        }
+    }
+    lines
 }
 
 fn kv_led(key: &str, on: bool, on_style: Style) -> Line<'static> {

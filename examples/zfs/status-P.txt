@@ -1,0 +1,110 @@
+  pool: bigpool
+ state: ONLINE
+status: Some supported and requested features are not enabled on the pool.
+        The pool can still be used, but some features are unavailable.
+action: Enable all features using 'zpool upgrade'. Once this is done,
+        the pool may no longer be accessible by software that does not support
+        the features. See zpool-features(7) for details.
+  scan: resilvered 10.3T in 23:19:49 with 0 errors on Thu Sep 10 19:02:22 2026
+config:
+
+        NAME                           STATE     READ WRITE CKSUM
+        bigpool                        ONLINE       0     0     0
+          raidz2-0                     ONLINE       0     0     0
+            /dev/da50                  ONLINE       0     0     0
+            /dev/da55                  ONLINE       0     0     0
+            /dev/da53                  ONLINE       0     0     0
+            /dev/da48                  ONLINE       0     0     0
+            /dev/da52                  ONLINE       0     0     0
+            /dev/gpt/bigpool-TL42G0L0  ONLINE       0     0     0
+            /dev/da32                  ONLINE       0     0     0
+            /dev/da36                  ONLINE       0     0     0
+          raidz2-1                     ONLINE       0     0     0
+            /dev/da54                  ONLINE       0     0     0
+            /dev/da56                  ONLINE       0     0     0
+            /dev/da28                  ONLINE       0     0     0
+            /dev/da37                  ONLINE       0     0     0
+            /dev/da38                  ONLINE       0     0     0
+            /dev/da46                  ONLINE       0     0     0
+            /dev/da42                  ONLINE       0     0     0
+            /dev/da39                  ONLINE       0     0     0
+          raidz2-2                     ONLINE       0     0     0
+            /dev/da47                  ONLINE       0     0     0
+            /dev/da45                  ONLINE       0     0     0
+            /dev/da44                  ONLINE       0     0     0
+            /dev/da41                  ONLINE       0     0     0
+            /dev/da49                  ONLINE       0     0     0
+            /dev/da40                  ONLINE       0     0     0
+            /dev/da51                  ONLINE       0     0     0
+            /dev/da43                  ONLINE       0     0     0
+
+errors: No known data errors
+
+  pool: hog
+ state: ONLINE
+status: One or more devices has experienced an unrecoverable error.  An
+        attempt was made to correct the error.  Applications are unaffected.
+action: Determine if the device needs to be replaced, and clear the errors
+        using 'zpool clear' or replace the device with 'zpool replace'.
+   see: https://openzfs.github.io/openzfs-docs/msg/ZFS-8000-9P
+  scan: scrub repaired 8.69M in 1 days 22:42:26 with 0 errors on Sun Sep 20 06:15:17 2026
+config:
+
+        NAME                             STATE     READ WRITE CKSUM
+        hog                              ONLINE       0     0     0
+          raidz2-0                       ONLINE       0     0     0
+            /dev/da0                     ONLINE       0     0     0
+            /dev/da1                     ONLINE       0     0     0
+            /dev/da2                     ONLINE       0     0     0
+            /dev/da3                     ONLINE       0     0     0
+            /dev/da4                     ONLINE       0     0     0
+            /dev/da5                     ONLINE       0     0     0
+            /dev/da6                     ONLINE       0     0     0
+            /dev/da7                     ONLINE       0     0     0
+          raidz2-1                       ONLINE       0     0     0
+            /dev/da8                     ONLINE       0     0     0
+            /dev/da9                     ONLINE     246     0     0
+            /dev/da10                    ONLINE       0     0     0
+            /dev/da11                    ONLINE       0     0     0
+            /dev/da12                    ONLINE       0     0     0
+            /dev/da13                    ONLINE       0     0     0
+            /dev/da14                    ONLINE       0     0     0
+            /dev/gpt/hog-TMKTXFDQ        ONLINE       0     0     0
+          raidz2-2                       ONLINE       0     0     0
+            /dev/gpt/hog-FGH6UV3S-spare  ONLINE       0     0     0
+            /dev/da17                    ONLINE       0     0     0
+            /dev/da18                    ONLINE       0     0     0
+            /dev/gpt/hog-FGD8Z0JR-spare  ONLINE       0     0     0
+            /dev/da20                    ONLINE       0     0     0
+            /dev/da21                    ONLINE       3     0     0
+            /dev/da22                    ONLINE       0     0     0
+            /dev/da23                    ONLINE       0     0     0
+          raidz2-3                       ONLINE       0     0     0
+            /dev/da24                    ONLINE       0     0     0
+            /dev/da25                    ONLINE       0     0     0
+            /dev/da26                    ONLINE       0     0     0
+            /dev/da27                    ONLINE       0     0     0
+            /dev/gpt/hog-LQF130NE-spare  ONLINE       0     0     0
+            /dev/da29                    ONLINE       0     0     0
+            /dev/da31                    ONLINE       0     0     0
+            /dev/gpt/hog-VPUN999Y-spare  ONLINE   3.51K     0     1
+
+errors: No known data errors
+
+  pool: zroot
+ state: ONLINE
+status: One or more devices has experienced an unrecoverable error.  An
+        attempt was made to correct the error.  Applications are unaffected.
+action: Determine if the device needs to be replaced, and clear the errors
+        using 'zpool clear' or replace the device with 'zpool replace'.
+   see: https://openzfs.github.io/openzfs-docs/msg/ZFS-8000-9P
+  scan: scrub repaired 120K in 00:00:39 with 0 errors on Tue Aug 18 22:24:18 2026
+config:
+
+        NAME             STATE     READ WRITE CKSUM
+        zroot            ONLINE       0     0     0
+          mirror-0       ONLINE       0     0     0
+            /dev/ada0p3  ONLINE      21     0    29
+            /dev/ada1p3  ONLINE      28     0    22
+
+errors: No known data errors

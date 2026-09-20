@@ -1,7 +1,8 @@
 use std::path::{Path, PathBuf};
 
 use super::geom::{GeomDisk, find_geom_file, load_geom_disks};
-use super::sesutil::{SesEnclosure, parse_sesutil_named};
+use super::sesutil::{SesBay, SesEnclosure, parse_sesutil_named};
+use super::zfs::{ZfsUsage, find_zfs_file, gpt_label_from_path, kernel_leaf, load_zpool_status};
 use crate::error::{Error, Result};
 
 /// Replay recorded `sesutil --libxo json` output from a directory.
@@ -10,6 +11,8 @@ pub struct FixtureProbe {
     pub enclosures: Vec<SesEnclosure>,
     pub disks: Vec<GeomDisk>,
     pub geom_probed: bool,
+    pub zfs: Vec<ZfsUsage>,
+    pub zfs_probed: bool,
 }
 
 impl FixtureProbe {
@@ -29,11 +32,20 @@ impl FixtureProbe {
         if geom_probed {
             attach_geom(&mut enclosures, &disks);
         }
+        let (zfs, zfs_probed) = match find_zfs_file(dir) {
+            Some(path) => (load_zpool_status(&path)?, true),
+            None => (Vec::new(), false),
+        };
+        if zfs_probed {
+            attach_zfs(&mut enclosures, &zfs);
+        }
         Ok(Self {
             source: dir.to_path_buf(),
             enclosures,
             disks,
             geom_probed,
+            zfs,
+            zfs_probed,
         })
     }
 
@@ -73,6 +85,31 @@ fn attach_geom(enclosures: &mut [SesEnclosure], disks: &[GeomDisk]) {
             bay.gpt_partitions = disk.partitions.clone();
         }
     }
+}
+
+fn attach_zfs(enclosures: &mut [SesEnclosure], usages: &[ZfsUsage]) {
+    for enc in enclosures {
+        for bay in &mut enc.bays {
+            bay.zfs = usages
+                .iter()
+                .filter(|u| zfs_matches_bay(bay, u))
+                .cloned()
+                .collect();
+        }
+    }
+}
+
+fn zfs_matches_bay(bay: &SesBay, usage: &ZfsUsage) -> bool {
+    if let Some(label) = gpt_label_from_path(&usage.path) {
+        return bay
+            .gpt_partitions
+            .iter()
+            .any(|p| p.label.as_deref() == Some(label));
+    }
+    if let Some(disk) = kernel_leaf(&usage.path) {
+        return bay.kernel_disk.as_deref() == Some(disk);
+    }
+    false
 }
 
 fn read(path: &Path) -> Result<String> {
@@ -176,8 +213,9 @@ mod tests {
         let da0 = front.slot_by_silk(0).unwrap();
         assert_eq!(da0.gpt_summary().as_deref(), Some("no"));
         assert!(da0.wwn().is_some());
+        assert_eq!(da0.zfs_pool(), Some("hog"));
 
-        // ses1 Slot09 is da33, GPT spare labeled with scrambled serial
+        // ses1 Slot09 is da33, GPT label with scrambled serial; data vdev not a zpool spare
         let spare = rear.slot_by_silk(9).unwrap();
         assert_eq!(
             spare.bay.as_ref().unwrap().kernel_disk.as_deref(),
@@ -187,6 +225,14 @@ mod tests {
             spare.gpt_summary().as_deref(),
             Some("gpt/hog-FGH6UV3S-spare")
         );
+        assert!(inv.zfs_probed);
+        assert_eq!(spare.zfs_pool(), Some("hog"));
+        assert_eq!(spare.zfs_vdev(), Some("raidz2-2"));
+        assert_eq!(spare.zfs_role(), Some("data"));
+        let da9 = front.slot_by_silk(9).unwrap();
+        assert_eq!(da9.zfs().first().unwrap().read_err, 246);
+        let da15 = front.slot_by_silk(15).unwrap();
+        assert!(da15.zfs().is_empty());
     }
 
     #[test]

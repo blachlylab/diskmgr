@@ -5,6 +5,7 @@ use std::path::Path;
 use serde::Deserialize;
 
 use super::geom::GptPartition;
+use super::zfs::ZfsUsage;
 use crate::error::{Error, Result};
 
 #[derive(Clone, Debug, PartialEq, Eq)]
@@ -35,6 +36,7 @@ pub struct SesBay {
     pub gpt_partitions: Vec<GptPartition>,
     /// True when this kernel disk was found in the geom inventory.
     pub geom_known: bool,
+    pub zfs: Vec<ZfsUsage>,
 }
 
 impl SesBay {
@@ -258,6 +260,7 @@ pub fn parse_sesutil_named(
                 gpt_scheme: None,
                 gpt_partitions: Vec::new(),
                 geom_known: false,
+                zfs: Vec::new(),
             });
         }
         out.push(SesEnclosure {

@@ -63,7 +63,8 @@ example.
 - Parse `examples/sesutil/{map,show,status}.json` in unit tests (empty bay,
   shuffled `da` vs slot, swapped bit, `ada` vs `da`, mixed status types).
 - LED on/off needs a separate tiny overlay; the lab dump has no locate/fault.
-- ZFS/GPT fixtures join on serial from `show.json`, not on `daN`.
+- ZFS/GPT fixtures join on serial / GPT label, not on `daN` as identity.
+- Parse `zpool status -P` text today; `zpool status -j` is a future TODO.
 - Do not require root or FreeBSD to `cargo test`.
 
 ## Style

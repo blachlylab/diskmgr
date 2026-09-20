@@ -38,9 +38,9 @@ pub fn draw(frame: &mut Frame, app: &App, area: Rect) {
             cell(dash(slot.wwn())),
             cell(dash(slot.gpt_summary().as_deref())),
             cell("—"),
-            cell("—"),
-            cell("—"),
-            cell("—"),
+            cell(dash(slot.zfs_pool())),
+            cell(dash(slot.zfs_vdev())),
+            cell(dash(slot.zfs_role())),
             led_cell(slot.fault(), crate::ui::fault_style()),
             led_cell(slot.locate(), crate::ui::locate_style()),
         ])

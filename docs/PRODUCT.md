@@ -418,7 +418,8 @@ tool supports it.
 | `camcontrol inquiry` / identify | Vendor, product, WWN when `diskinfo` lacks it |
 | `gpart show -p`, `glabel status` | GPT, geom labels |
 | `mount` | Mounted filesystems |
-| `zpool status -P` / `zpool status -v` | Pool, vdev, role |
+| `zpool status -P` / `zpool status -v` | Pool, vdev, role, errors (text; lab host) |
+| `zpool status -j` | Same, JSON — **TODO** when OpenZFS on the server is new enough |
 | `sas3ircu DISPLAY` | **Fallback only** when SES is missing fields |
 
 LED *read* path: `sesutil map` extra status (`LED=locate`, `LED=fault`).
@@ -475,13 +476,18 @@ capture for LED rendering tests; do not fake LEDs by editing the lab dump
 in place without labeling it.
 
 GPT/WWN come from `examples/geom/disks.json` (joined on **serial**, then
-`daN`). Mounts and ZFS are still a later fixture layer.
+`daN`). ZFS membership comes from `examples/zfs/status-P.txt` (`zpool
+status -P` text). Mounts are still unprobed.
 
 Most lab data disks have **no GPT** (whole-disk ZFS). GPT labels in this
-capture: boot SSDs (`gptboot*`, `swap*`, `zfs*`), hog spares
-(`gpt/hog-…-spare`), and `gpt/bigpool-…`. `gpart list --libxo json` was
+capture: boot SSDs (`gptboot*`, `swap*`, `zfs*`), hog disks labeled
+`gpt/hog-…-spare`, and `gpt/bigpool-…`. Those `-spare` GPT names are
+**data** vdev members, not `zpool` spares. `gpart list --libxo json` was
 plain text on the lab host; the fixture is structured JSON derived from
 that dump. Serials inside GPT labels are scrambled like SES idents.
+
+**TODO:** parse `zpool status -j` (JSON) when the storage server’s OpenZFS
+is new enough. Until then `-P` text is the live and fixture contract.
 
 ### 9.5 Lab SES capture (parser contract)
 
@@ -606,6 +612,8 @@ examples/
   diskmgr.toml
   sesutil/          # recorded map.json, show.json, status.json
   geom/disks.json   # GPT + WWN (geom disk ident/lunid), serials scrambled
+  zfs/status-P.txt  # zpool status -P (gpt labels scrambled)
+                    # TODO: zpool status -j when the host supports it
 ```
 
 `layout.rs` must be unit-tested with no hardware: origin/fill/base permutations.

@@ -368,10 +368,10 @@ impl App {
             }
             GridColumn::Fault => sa.fault().cmp(&sb.fault()),
             GridColumn::Locate => sa.locate().cmp(&sb.locate()),
-            GridColumn::Mounted
-            | GridColumn::ZfsPool
-            | GridColumn::ZfsVdev
-            | GridColumn::ZfsRole => Ordering::Equal,
+            GridColumn::ZfsPool => opt_str(sa.zfs_pool()).cmp(&opt_str(sb.zfs_pool())),
+            GridColumn::ZfsVdev => opt_str(sa.zfs_vdev()).cmp(&opt_str(sb.zfs_vdev())),
+            GridColumn::ZfsRole => opt_str(sa.zfs_role()).cmp(&opt_str(sb.zfs_role())),
+            GridColumn::Mounted => Ordering::Equal,
         };
         primary
             .then_with(|| ea.config.name.cmp(&eb.config.name))

@@ -162,6 +162,21 @@ mod tests {
         assert!(text.contains("gpt/gptboot0") || text.contains("gptboot0"));
         assert!(text.contains("gpt/zfs0") || text.contains("zfs0"));
         assert!(text.contains("freebsd-zfs"));
+        assert!(text.contains("zroot"));
+        assert!(text.contains("mirror-0"));
+    }
+
+    #[test]
+    fn hog_member_shows_zfs_and_errors() {
+        let mut app = lab_app();
+        app.handle_key(crate::app::Key::Char('1'));
+        app.handle_key(crate::app::Key::Enter);
+        app.map_silk = 9; // da9, READ 246
+        let text = view(&app, 120, 36);
+        assert!(text.contains("hog"));
+        assert!(text.contains("raidz2-1"));
+        assert!(text.contains("READ 246"));
+        assert!(text.contains("unstable"));
     }
 }
 
