@@ -38,6 +38,16 @@ impl Face {
     }
 }
 
+/// How drive bays are drawn on the map. Default is a wide, short tray
+/// (3.5" style). Vertical is a tall, thin bay (2.5" SSDs on edge).
+#[derive(Clone, Copy, Debug, Default, PartialEq, Eq, Deserialize)]
+#[serde(rename_all = "lowercase")]
+pub enum DiskOrient {
+    #[default]
+    Horizontal,
+    Vertical,
+}
+
 #[derive(Clone, Debug, Deserialize)]
 pub struct EnclosureConfig {
     pub name: String,
@@ -51,6 +61,8 @@ pub struct EnclosureConfig {
     pub origin: Origin,
     pub fill: Fill,
     pub slot_index_base: u32,
+    #[serde(default)]
+    pub disk_orient: DiskOrient,
 }
 
 impl EnclosureConfig {
@@ -185,6 +197,8 @@ mod tests {
         assert_eq!(rear.ncols, 4);
         assert_eq!(rear.nrows, 3);
         assert_eq!(rear.ses_unit().as_deref(), Some("ses1"));
+        assert_eq!(cfg.enclosure[0].disk_orient, DiskOrient::Horizontal);
+        assert_eq!(cfg.enclosure[5].disk_orient, DiskOrient::Vertical);
     }
 
     #[test]

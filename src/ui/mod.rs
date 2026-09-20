@@ -11,6 +11,20 @@ use ratatui::widgets::{Block, Paragraph};
 
 use crate::app::{App, Mode};
 
+/// ANSI bright red (91) + bold. Used for fault LEDs.
+pub(crate) fn fault_style() -> Style {
+    Style::new()
+        .fg(Color::LightRed)
+        .add_modifier(Modifier::BOLD)
+}
+
+/// ANSI bright blue (94) + bold. Used for locate LEDs.
+pub(crate) fn locate_style() -> Style {
+    Style::new()
+        .fg(Color::LightBlue)
+        .add_modifier(Modifier::BOLD)
+}
+
 pub fn draw(frame: &mut Frame, app: &App) {
     let area = frame.area();
     let chunks = Layout::vertical([
@@ -121,6 +135,21 @@ mod tests {
         assert!(text.contains("SMC SC846P"));
         assert!(text.contains("serial"));
         assert!(text.contains("unstable"));
+        assert!(text.contains("┌──────┐"));
+        assert!(text.contains("■"));
+    }
+
+    #[test]
+    fn vertical_bays_are_tall_thin_boxes() {
+        let mut app = lab_app();
+        app.handle_key(crate::app::Key::Char('1'));
+        // last enclosure is the SC216 vertical placeholder
+        app.select_idx = app.inventory.enclosures.len() - 1;
+        app.handle_key(crate::app::Key::Enter);
+        let text = view(&app, 120, 30);
+        assert!(text.contains("┌───┐"));
+        assert!(text.contains("└───┘"));
+        assert!(!text.contains("┌──────┐"));
     }
 }
 

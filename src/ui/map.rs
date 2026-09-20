@@ -5,12 +5,25 @@ use ratatui::text::{Line, Span};
 use ratatui::widgets::{Block, Paragraph, Wrap};
 
 use crate::app::App;
+use crate::config::DiskOrient;
 use crate::display::{dash, fmt_size};
 use crate::inventory::{MappedEnclosure, MappedSlot};
 use crate::ui::inner_with_status;
 
-const CELL_W: u16 = 7;
-const CELL_H: u16 = 3;
+/// Glyph box plus 1-column gap.
+fn cell_step(orient: DiskOrient) -> (u16, u16) {
+    match orient {
+        DiskOrient::Horizontal => (9, 3),
+        DiskOrient::Vertical => (6, 5),
+    }
+}
+
+fn cell_glyph_size(orient: DiskOrient) -> (u16, u16) {
+    match orient {
+        DiskOrient::Horizontal => (8, 3),
+        DiskOrient::Vertical => (5, 5),
+    }
+}
 
 pub fn draw(frame: &mut Frame, app: &App, area: Rect) {
     let (map_area, status_area) = inner_with_status(area);
@@ -41,8 +54,10 @@ fn draw_grid(frame: &mut Frame, area: Rect, enc: &MappedEnclosure, focus_silk: u
     let grid_area = chunks[0];
     let legend_area = chunks[1];
 
-    let vis_cols = (grid_area.width / CELL_W).max(1);
-    let vis_rows = (grid_area.height / CELL_H).max(1);
+    let (step_w, step_h) = cell_step(enc.config.disk_orient);
+    let (glyph_w, glyph_h) = cell_glyph_size(enc.config.disk_orient);
+    let vis_cols = (grid_area.width / step_w).max(1);
+    let vis_rows = (grid_area.height / step_h).max(1);
     let (origin_c, origin_r) = scroll_origin(enc, focus_silk, vis_cols as u32, vis_rows as u32);
 
     {
@@ -56,24 +71,31 @@ fn draw_grid(frame: &mut Frame, area: Rect, enc: &MappedEnclosure, focus_silk: u
             if dc >= vis_cols as u32 || dr >= vis_rows as u32 {
                 continue;
             }
-            let x = grid_area.x + dc as u16 * CELL_W;
-            let y = grid_area.y + dr as u16 * CELL_H;
-            if y + 1 >= grid_area.y + grid_area.height {
+            let x = grid_area.x + dc as u16 * step_w;
+            let y = grid_area.y + dr as u16 * step_h;
+            if x + glyph_w > grid_area.right() || y + glyph_h > grid_area.bottom() {
                 continue;
             }
-            paint_cell(buf, x, y, slot, slot.silk == focus_silk);
+            paint_cell(
+                buf,
+                x,
+                y,
+                slot,
+                enc.config.disk_orient,
+                slot.silk == focus_silk,
+            );
         }
     }
 
     frame.render_widget(
         Paragraph::new(Line::from(vec![
-            Span::styled("██", Style::new().fg(Color::Cyan)),
+            Span::styled("■", Style::new().fg(Color::Cyan)),
             Span::raw(" occupied  "),
-            Span::styled("░░", Style::new().fg(Color::DarkGray)),
+            Span::styled("·", Style::new().fg(Color::DarkGray)),
             Span::raw(" empty  "),
-            Span::styled("●", Style::new().fg(Color::Red)),
+            Span::styled("!", crate::ui::fault_style()),
             Span::raw(" fault  "),
-            Span::styled("●", Style::new().fg(Color::Blue)),
+            Span::styled("*", crate::ui::locate_style()),
             Span::raw(" locate"),
         ])),
         legend_area,
@@ -102,35 +124,98 @@ fn scroll_origin(
     (origin_c, origin_r)
 }
 
-fn paint_cell(buf: &mut ratatui::buffer::Buffer, x: u16, y: u16, slot: &MappedSlot, focused: bool) {
+fn paint_cell(
+    buf: &mut ratatui::buffer::Buffer,
+    x: u16,
+    y: u16,
+    slot: &MappedSlot,
+    orient: DiskOrient,
+    focused: bool,
+) {
+    let border = if focused {
+        Style::new().fg(Color::Yellow).add_modifier(Modifier::BOLD)
+    } else {
+        Style::new().fg(Color::DarkGray)
+    };
     let num_style = if focused {
         Style::new()
             .fg(Color::Black)
             .bg(Color::Yellow)
             .add_modifier(Modifier::BOLD)
+    } else if slot.occupied() {
+        Style::new().fg(Color::White)
     } else {
-        Style::new()
+        Style::new().fg(Color::DarkGray)
     };
-    buf.set_stringn(x, y, format!("{:>3}", slot.silk), 3, num_style);
+    let (occ_ch, occ_style) = if slot.occupied() {
+        ('■', Style::new().fg(Color::Cyan))
+    } else {
+        ('·', Style::new().fg(Color::DarkGray))
+    };
+    let num = format!("{:02}", slot.silk);
 
-    let (occ, occ_style) = if slot.occupied() {
-        (
-            "██",
-            Style::new().fg(Color::Cyan).add_modifier(if focused {
-                Modifier::BOLD
-            } else {
-                Modifier::empty()
-            }),
-        )
-    } else {
-        ("░░", Style::new().fg(Color::DarkGray))
-    };
-    buf.set_stringn(x, y + 1, occ, 2, occ_style);
-    if slot.fault() {
-        buf.set_stringn(x + 3, y + 1, "●", 1, Style::new().fg(Color::Red));
+    match orient {
+        DiskOrient::Horizontal => {
+            // ┌──────┐
+            // │01 ■!*│
+            // └──────┘
+            put_str(buf, x, y, "┌──────┐", border);
+            put_ch(buf, x, y + 1, '│', border);
+            put_str(buf, x + 1, y + 1, &num, num_style);
+            put_ch(buf, x + 3, y + 1, ' ', Style::new());
+            put_ch(buf, x + 4, y + 1, occ_ch, occ_style);
+            put_led(buf, x + 5, y + 1, slot.fault(), '!');
+            put_led(buf, x + 6, y + 1, slot.locate(), '*');
+            put_ch(buf, x + 7, y + 1, '│', border);
+            put_str(buf, x, y + 2, "└──────┘", border);
+        }
+        DiskOrient::Vertical => {
+            // ┌───┐
+            // │01 │
+            // │ ■ │
+            // │!* │
+            // └───┘
+            put_str(buf, x, y, "┌───┐", border);
+            put_ch(buf, x, y + 1, '│', border);
+            put_str(buf, x + 1, y + 1, &num, num_style);
+            put_ch(buf, x + 3, y + 1, ' ', Style::new());
+            put_ch(buf, x + 4, y + 1, '│', border);
+            put_ch(buf, x, y + 2, '│', border);
+            put_ch(buf, x + 1, y + 2, ' ', Style::new());
+            put_ch(buf, x + 2, y + 2, occ_ch, occ_style);
+            put_ch(buf, x + 3, y + 2, ' ', Style::new());
+            put_ch(buf, x + 4, y + 2, '│', border);
+            put_ch(buf, x, y + 3, '│', border);
+            put_led(buf, x + 1, y + 3, slot.fault(), '!');
+            put_led(buf, x + 2, y + 3, slot.locate(), '*');
+            put_ch(buf, x + 3, y + 3, ' ', Style::new());
+            put_ch(buf, x + 4, y + 3, '│', border);
+            put_str(buf, x, y + 4, "└───┘", border);
+        }
     }
-    if slot.locate() {
-        buf.set_stringn(x + 4, y + 1, "●", 1, Style::new().fg(Color::Blue));
+}
+
+fn put_str(buf: &mut ratatui::buffer::Buffer, x: u16, y: u16, s: &str, style: Style) {
+    buf.set_stringn(x, y, s, s.chars().count(), style);
+}
+
+fn put_ch(buf: &mut ratatui::buffer::Buffer, x: u16, y: u16, ch: char, style: Style) {
+    if let Some(cell) = buf.cell_mut((x, y)) {
+        cell.set_char(ch);
+        cell.set_style(style);
+    }
+}
+
+fn put_led(buf: &mut ratatui::buffer::Buffer, x: u16, y: u16, on: bool, ch: char) {
+    if on {
+        let style = if ch == '!' {
+            crate::ui::fault_style()
+        } else {
+            crate::ui::locate_style()
+        };
+        put_ch(buf, x, y, ch, style);
+    } else {
+        put_ch(buf, x, y, ' ', Style::new());
     }
 }
 
@@ -166,8 +251,8 @@ fn draw_status(frame: &mut Frame, area: Rect, enc: &MappedEnclosure, slot: Optio
         Some(bay) => {
             lines.push(kv("SES", &format!("{unit}  element {}", bay.element_id)));
             lines.push(kv("occupied", if slot.occupied() { "yes" } else { "no" }));
-            lines.push(kv("locate", on_off(bay.locate)));
-            lines.push(kv("fault", on_off(bay.fault)));
+            lines.push(kv_led("locate", bay.locate, crate::ui::locate_style()));
+            lines.push(kv_led("fault", bay.fault, crate::ui::fault_style()));
             let mut status = bay.status.clone();
             if bay.swapped {
                 status.push_str("  swapped");
@@ -238,6 +323,10 @@ fn kv(key: &str, value: &str) -> Line<'static> {
     Line::from(vec![key_span(key), Span::raw(value.to_string())])
 }
 
-fn on_off(on: bool) -> &'static str {
-    if on { "on" } else { "off" }
+fn kv_led(key: &str, on: bool, on_style: Style) -> Line<'static> {
+    if on {
+        Line::from(vec![key_span(key), Span::styled("on", on_style)])
+    } else {
+        kv(key, "off")
+    }
 }

@@ -8,7 +8,7 @@ pub mod probe;
 pub mod ui;
 
 pub use app::{App, Key, Mode};
-pub use config::{Config, EnclosureConfig, Face};
+pub use config::{Config, DiskOrient, EnclosureConfig, Face};
 pub use error::{Error, Result};
 pub use inventory::{Inventory, MappedEnclosure, MappedSlot};
 pub use layout::{Cell, Fill, Geometry, Origin};

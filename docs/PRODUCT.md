@@ -174,16 +174,26 @@ Must show:
 Both LEDs may be on at once; show both (e.g. two colored dots). Empty bays still
 show slot number and LED state (locate/fault can apply to empty elements).
 
-Suggested glyphs (implementers may refine, keep them distinguishable on
-color and mono terminals):
+Each bay is a box. `disk_orient` chooses the aspect (default horizontal):
 
-| State | Example |
-|-------|---------|
-| Occupied | `██` or `[==]` |
-| Empty | `░░` or `[  ]` |
-| Locate on | blue `●` |
-| Fault on | red `●` |
-| Focus | reverse video / bold box |
+```
+horizontal                 vertical
+┌──────┐                   ┌───┐
+│01 ■! │                   │01 │
+└──────┘                   │ ■ │
+                           │ ! │
+                           └───┘
+```
+
+Glyphs (color + symbol; both LEDs may be on):
+
+| State | Symbol | Color |
+|-------|--------|-------|
+| Occupied | `■` | cyan |
+| Empty | `·` | dark gray |
+| Fault LED | `!` | bright red (ANSI 91) + bold |
+| Locate LED | `*` | bright blue (ANSI 94) + bold |
+| Focus | yellow box border | |
 
 Include a compact legend on the map.
 
@@ -335,6 +345,10 @@ fill = "column"
 
 # Silk-screen numbers: 0 or 1
 slot_index_base = 0
+
+# How bays are drawn: "horizontal" (default, wide tray) or "vertical"
+# (tall thin bay, e.g. 2.5" SSDs on edge).
+# disk_orient = "horizontal"
 
 # Optional: first SES array-device element that corresponds to slot_index_base.
 # Default: lowest Array Device Slot element that looks like a real bay

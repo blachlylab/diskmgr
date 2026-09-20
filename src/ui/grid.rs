@@ -41,8 +41,8 @@ pub fn draw(frame: &mut Frame, app: &App, area: Rect) {
             cell("—"),
             cell("—"),
             cell("—"),
-            cell(if slot.fault() { "on" } else { "off" }),
-            cell(if slot.locate() { "on" } else { "off" }),
+            led_cell(slot.fault(), crate::ui::fault_style()),
+            led_cell(slot.locate(), crate::ui::locate_style()),
         ])
     });
 
@@ -83,6 +83,14 @@ pub fn draw(frame: &mut Frame, app: &App, area: Rect) {
 
 fn cell(text: &str) -> Cell<'static> {
     Cell::from(text.to_string())
+}
+
+fn led_cell(on: bool, style: Style) -> Cell<'static> {
+    if on {
+        Cell::from("on").style(style)
+    } else {
+        cell("off")
+    }
 }
 
 fn disk_name(slot: &MappedSlot) -> &str {

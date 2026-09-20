@@ -76,3 +76,4 @@ nrows = 1
 origin = "BL"
 fill = "column"
 slot_index_base = 0
+disk_orient = "vertical"
