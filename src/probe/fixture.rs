@@ -110,21 +110,22 @@ mod tests {
         let cfg = Config::load_from_path(Path::new("examples/diskmgr.toml")).unwrap();
         let probe = load_lab();
         let inv = Inventory::from_fixture(&cfg, &probe).unwrap();
-        assert_eq!(inv.enclosures.len(), 5);
-        assert!(inv.enclosures.iter().all(|e| !e.unmatched));
+        assert_eq!(inv.enclosures.len(), 6);
+        assert!(inv.enclosures.iter().take(5).all(|e| !e.unmatched));
+        assert!(inv.enclosures[5].unmatched);
 
         let front = &inv.enclosures[0];
-        assert_eq!(front.occupied(), 24);
+        assert_eq!(front.occupied_count(), 24);
         let silk0 = front.slots.iter().find(|s| s.silk == 0).unwrap();
         assert_eq!(silk0.cell.col, 0);
-        assert_eq!(silk0.cell.row, 3);
+        assert_eq!(silk0.cell.row, front.config.nrows - 1);
         assert_eq!(
             silk0.bay.as_ref().unwrap().kernel_disk.as_deref(),
             Some("da0")
         );
 
         let rear = &inv.enclosures[1];
-        assert_eq!(rear.occupied(), 11);
+        assert_eq!(rear.occupied_count(), 11);
         let silk0 = rear.slots.iter().find(|s| s.silk == 0).unwrap();
         assert_eq!(silk0.cell, crate::layout::Cell { col: 0, row: 2 });
         let empty = rear.slots.iter().find(|s| s.silk == 6).unwrap();

@@ -567,21 +567,20 @@ separable:
 ```
 src/
   main.rs           # clap, terminal setup, run loop
-  app.rs            # Mode enum, app state
-  event.rs          # key handling per mode
+  app.rs            # Mode enum, key handling
   config.rs         # TOML load + validate
   layout.rs         # silk-screen ↔ (row, col); unit-test this
-  model.rs          # Enclosure, Slot, Disk, ZfsUsage
+  inventory.rs      # join config geometry to SES occupancy
   probe/
     mod.rs
-    freebsd.rs
+    sesutil.rs
     fixture.rs
   ui/
+    mod.rs
     menu.rs
-    shelf_select.rs
-    shelf_map.rs
+    picker.rs
+    map.rs
     grid.rs
-    status.rs
 examples/
   diskmgr.toml
   sesutil/          # recorded map.json, show.json, status.json

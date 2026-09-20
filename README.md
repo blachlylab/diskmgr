@@ -51,5 +51,6 @@ cargo test
 cargo run -- --config examples/diskmgr.toml --fixture examples/sesutil
 ```
 
-That prints a slot listing (not the TUI yet). Captured `sesutil` JSON lives
-in `examples/sesutil/`.
+Fullscreen TUI: `1` shelf map (picker, then ASCII grid + status panel), `2`
+spreadsheet. ESC backs up; ESC on the main menu quits. Captured `sesutil`
+JSON lives in `examples/sesutil/`.

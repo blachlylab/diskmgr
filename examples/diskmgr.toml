@@ -1,5 +1,5 @@
 # Lab config. Geometry confirmed with the operator:
-#   24-bay SC846: 6×4, slot 0 bottom-left, fill up the column, 0-based
+#   24-bay SC846: 4×6, slot 0 bottom-left, fill up the column, 0-based
 #   12-bay LSI: rear of the first SC846, 4×3, same origin/fill/base
 #   AHCI SGPIO: shown in the picker; 1-row layout is an assumption
 # Join live probes by enclosure `id`, not by sesN.
@@ -14,8 +14,8 @@ chassis = "sc846p-0c1f"
 face = "front"
 ses_device = "ses0"
 enclosure_id = "50030480186d133f"
-ncols = 6
-nrows = 4
+ncols = 4
+nrows = 6
 origin = "BL"
 fill = "column"
 slot_index_base = 0
@@ -39,8 +39,8 @@ chassis = "sc846p-100b"
 face = "front"
 ses_device = "ses2"
 enclosure_id = "500304802125927f"
-ncols = 6
-nrows = 4
+ncols = 4
+nrows = 6
 origin = "BL"
 fill = "column"
 slot_index_base = 0
@@ -63,4 +63,16 @@ ncols = 6
 nrows = 1
 origin = "TL"
 fill = "row"
+slot_index_base = 0
+
+[[enclosure]]
+name = "SMC SC216 test 2.5 ssd"
+chassis = "sc216"
+face = "front"
+ses_device = "ses5"
+enclosure_id = "5003048021250000"
+ncols = 24
+nrows = 1
+origin = "BL"
+fill = "column"
 slot_index_base = 0

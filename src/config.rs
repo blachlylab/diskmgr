@@ -28,6 +28,16 @@ pub enum Face {
     Unknown,
 }
 
+impl Face {
+    pub fn label(self) -> &'static str {
+        match self {
+            Self::Front => "front",
+            Self::Back => "back",
+            Self::Unknown => "—",
+        }
+    }
+}
+
 #[derive(Clone, Debug, Deserialize)]
 pub struct EnclosureConfig {
     pub name: String,
@@ -168,7 +178,7 @@ mod tests {
     fn example_config_loads() {
         let cfg = Config::load_from_path(Path::new("examples/diskmgr.toml")).unwrap();
         assert_eq!(cfg.host.name.as_deref(), Some("storage1"));
-        assert_eq!(cfg.enclosure.len(), 5);
+        assert_eq!(cfg.enclosure.len(), 6);
         let rear = &cfg.enclosure[1];
         assert_eq!(rear.chassis.as_deref(), Some("sc846p-0c1f"));
         assert_eq!(rear.face, Face::Back);

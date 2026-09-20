@@ -61,10 +61,33 @@ impl Inventory {
 }
 
 impl MappedEnclosure {
-    pub fn occupied(&self) -> usize {
+    pub fn occupied_count(&self) -> usize {
+        self.slots.iter().filter(|s| s.occupied()).count()
+    }
+
+    pub fn slot_by_silk(&self, silk: u32) -> Option<&MappedSlot> {
+        self.slots.iter().find(|s| s.silk == silk)
+    }
+
+    pub fn slot_at_cell(&self, col: u32, row: u32) -> Option<&MappedSlot> {
         self.slots
             .iter()
-            .filter(|s| s.bay.as_ref().is_some_and(|b| b.kernel_disk.is_some()))
-            .count()
+            .find(|s| s.cell.col == col && s.cell.row == row)
+    }
+}
+
+impl MappedSlot {
+    pub fn occupied(&self) -> bool {
+        self.bay
+            .as_ref()
+            .is_some_and(|b| b.kernel_disk.is_some() || b.serial.is_some() || b.model.is_some())
+    }
+
+    pub fn locate(&self) -> bool {
+        self.bay.as_ref().is_some_and(|b| b.locate)
+    }
+
+    pub fn fault(&self) -> bool {
+        self.bay.as_ref().is_some_and(|b| b.fault)
     }
 }
